@@ -13,7 +13,7 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     </head>
     <body>   
-        <%@include file="userAdmin/jsp/menu.jspf" %>
+        <%@include file="WEB-INF/jsp/menu.jspf" %>
         <div class="container">
             <header>
                 <h1>Fique por dentro do mundo da música!</h1>

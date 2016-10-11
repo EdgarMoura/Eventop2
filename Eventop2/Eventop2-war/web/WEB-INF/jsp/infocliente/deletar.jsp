@@ -12,7 +12,9 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <%@include file="../menu.jspf" %>
+           <%@include file= "../menu.jspf"%>
+          
+          
         <div class="container">
             <article>  
                 <fieldset class="cadastro"> 

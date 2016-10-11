@@ -25,7 +25,8 @@
     </head>
 
     <body>
-        <%@include file="../menu.jspf" %>
+        <%@include file="../menu.jspf"%>
+        <a href=></a>
         <div class="container">
             ${errormsg}
            ${errormsg=null}
