@@ -1,0 +1,45 @@
+*{
+    font-family: Arial,Verdana;
+    
+}
+body{
+    margin: 0;
+}
+.topMenu{
+    background-color: #2F3233;
+    color: #FFF;
+    text-decoration: none;
+}
+.topMenu ul{
+    padding-left: 0;
+    margin:0px;
+}
+.topMenu ul li{
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px;
+}
+.topMenu ul li:hover, .selectedMenu{
+    background-color: #FFF;
+    color:#000;
+}
+.topMenu ul a, .topMenu ul a:active, .topMenu ul a:visited{
+    color:#FFF;
+}
+.msg{
+    background-color: rgba(255,0,0,0.3);
+    border: 1px solid #f00;
+    padding: 5px;
+    animation: anim 3s;
+}
+@keyframes anim{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+
+
+#map {
+    width: 500px;
+    height: 400px;
+}

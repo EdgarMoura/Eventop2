@@ -1,0 +1,89 @@
+#maps-frame{
+    width: 1140px; height: 500px; 
+}
+
+.cadastro{width: 500px; height: auto;  background:#f7f7f7; opacity: 0.9; border:1px solid; font-family:Impacta, "arial", verdana,"Century Schoolbook L", "Times New Roman", "serif"; font-size: 18px; }
+
+#cadastro{margin-left: 15px; margin-right: 15px;}
+
+p{ font-family: "Courier New", "Monaco", "monospace"; font-size: 12px;}
+
+legend {font-family: "arial", "verdana", "sans-serif"; font-size: 20px; }
+
+label{font-family: "arial", "verdana", "sans-serif"; font-size: 14px;}
+
+form input[type="text"] {
+   width:280px; padding:5px; font-size:14px;  text-indent:6px;  font-family: "arial", "verdana", "sans-serif";
+}
+   
+form input[type="password"] {
+   width:280px; padding:5px; font-size:14px;  text-indent:6px;  font-family: "arial", "verdana", "sans-serif";
+}
+   
+form input[type="email"] {
+   width:280px; padding:5px; font-size:14px;  text-indent:6px;  font-family: "arial", "verdana", "sans-serif";
+}
+
+form input[type="date"] {
+   width:280px; padding:5px; font-size:14px;  text-indent:6px; font-family: "arial", "verdana", "sans-serif";
+}
+form input[type="submit"] { 
+width:80px; background:#2F3233; font-size:14px; color:#FFF; padding:5px; border-bottom:3px solid #CCC; border-radius:4px; font-family: "arial", "verdana", "sans-serif"; text-indent:2px;  cursor:pointer;
+}
+form input[type="submit"]:hover {
+  background:#101010; color:#f7f7f7;
+}
+
+#cadastro select{
+    width:280px;  padding:5px; font-size:14px; text-indent:6px; outline:none; font-family:Impacta, "arial", verdana,"Century Schoolbook L", "Times New Roman", "serif";
+
+}
+
+#botaoRemover{width:150px; background:#2F3233; font-size:14px; color:#FFF; padding:5px; border-bottom:3px solid #CCC; border-radius:4px; font-family: "arial", "verdana", "sans-serif"; text-indent:2px;  cursor:pointer;}
+
+#botaoRemover:hover{
+  background:#101010; color:#f7f7f7;
+}
+
+.msg{
+    background-color: rgba(255,0,0,0.5);
+    border: 1px solid #f00;
+    padding: 8px;
+    animation: anim 1s;
+    font-family: "arial", "verdana", "sans-serif";
+    font-weight:bold;
+    color: #f00;
+    font-size: 20px;
+    text-align: center;
+}
+@keyframes anim{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+.msgsuccess{
+ background-color: rgba(0,255,0,0.5);   
+ border: 1px solid green;
+ padding: 8px;
+ animation: anim 1s;
+ font-family:"arial", "verdana", "sans-serif";
+ font-size: 20px;
+ font-weight:bold;
+ 
+ color: green;
+}
+
+.msgregister{
+ background-color: rgba(0,255,0,0.5);   
+ border: 1px solid green;
+ padding: 8px;
+ animation: anim 1s;
+ font-family: "arial", "verdana", "sans-serif";
+ font-weight:bold;
+  font-size: 20px;
+ text-align: center;
+ color: green;  
+}
+
+
+

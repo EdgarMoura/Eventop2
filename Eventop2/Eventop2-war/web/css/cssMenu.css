@@ -1,0 +1,17 @@
+
+
+form input[type="text"] {
+   width:280px; padding:5px; font-size:14px;  text-indent:6px; outline:none; font-family:Impacta, "arial", verdana,"Century Schoolbook L", "Times New Roman", "serif";
+}
+   
+form input[type="password"] {
+   width:280px; padding:5px; font-size:14px;   text-indent:6px; outline:none; font-family:Impacta, "arial", verdana,"Century Schoolbook L", "Times New Roman", "serif";
+}
+   
+form input[type="email"] {
+   width:280px; padding:5px; font-size:14px;  text-indent:6px; outline:none; font-family:Impacta, "arial", verdana,"Century Schoolbook L", "Times New Roman", "serif";
+}
+
+form select{
+    width:280px; background: #F5F5F5;  padding:5px; font-size:14px; text-indent:6px; outline:none; font-family:Impacta, "arial", verdana,"Century Schoolbook L", "Times New Roman", "serif";
+}

@@ -1,0 +1,326 @@
+﻿﻿body  {
+	margin: 0px;
+	padding: 0px;
+	font-family: tahoma, arial, helvetica, sans-serif;
+	text-align: center;
+	color: white;
+	background: #000000;
+}
+
+
+#container  {
+	padding: 1px ;
+	margin: 10px 10px 10px 10px;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	position: center;
+	background-image: url("fundo_menu.png");
+}  
+
+
+#header {
+	background-image: url("fundo_header.png");
+	height: 60px;
+	width: 900px;
+	border-bottom: 0px solid #fff;
+	font-family: tahoma, arial, helvetica;
+	font-size: 20px;
+	text-align: center;
+	color: #853385;
+}
+
+
+#menu  {   
+	background-image: url("fundo_menu.png");
+	background-size: 1000px 300px;
+	color: black;
+	padding: 10px 0px 5px 0px;
+	margin-bottom: 10px;
+	margin: 0px 0px 5px;
+	text-align:center;
+	text-color:white;
+}    
+#menu ul {
+	margin: 0 10px 20px 10px;
+	padding: 0;
+	list-style-type: none;
+	position:center;
+	text-color:white;
+
+}
+
+#menu li {
+	display: inline;
+	padding: 0px 10px 0px 10px;
+	font-family:tahoma, arial, helvetica;
+	font-size: 20px;
+}
+
+#menu li a {
+	text-decoration: none;
+	color: white;
+}
+
+#menu input{
+	text-align:center;
+	}
+
+#container article{
+  width: 240px;
+  height: 300px;
+  float: left;
+  margin: 20px 20px 20px 20px;
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: 10px;
+  background: #290029;
+  /*background-image: url("fundo_div.jpg");
+  background-size: 270px 330px;**/
+ }
+
+article h2 {
+	font-size:30px;
+	text-align:center;	
+	text-shadow: 2px -1px 	#5C007A;
+	font-family:Rockwell Extra Bold;
+	color: white;
+}
+
+article p {
+	font-size: 18px;
+	color: white;
+	text-align: center;
+}
+
+article img{
+	float:center;
+	width: 230px;
+	height: 130px;
+	border-radius: 8px;
+	border: 2px solid black;
+}
+
+article form{
+	color: #CC80E6;
+	text-align:center;
+}
+
+#login  {
+	background-color: #FFFF;
+	width:380px;
+	font-family: Verdana, sans-serif;
+	font-size: 11px;
+	color: #003399;
+	padding-left: 270px;
+	padding-bottom: 2px;
+	text-align:center;
+}
+
+#footer {     
+	clear: both;
+	color: #272900;
+	background: yellow;
+	padding: 2px;
+}  
+
+#footer p {
+	color: black;
+	font-size: 15px;
+	text-align: center;
+}
+
+#destaque h2{
+	font-family:Rockwell Extra Bold;
+}
+
+#top10 h2{
+	font-family:Rockwell Extra Bold;
+	font-size:35px;
+}
+
+#esquerda{
+	padding: 0px 20px 5px 30px;
+	width: 400px;
+	float: left;
+	text-align: center;
+	line-height: 17px;
+	position: relative;
+	font-size:15px;
+}
+
+#esquerda h2{
+	text-align:center;
+}
+
+#esquerda p{
+	text-align: left;
+}
+
+#direita{
+	padding: 4px 20px 5px 30px;
+	text-align: center;
+	line-height: 17px;
+	position: relative;
+	font-size:15px;
+}
+
+#direita img{
+	width: 8cm;
+	height: 8cm;
+	border-radius: 8px;
+	margin: 50px 0 60px 0;
+}
+
+.novidade{
+	padding: 0px 10px 10px 10px;
+	margin: 0px;
+	float: center;
+	text-align:center;
+	font-family:Rockwell Extra Bold;
+}
+
+.novidade p{
+	margin: 10px;
+	padding: 0px 15px 0px 15px;
+	font-family: Tahoma;
+}
+
+.novidade img{
+	width: 350px;
+	height: 250px;
+	border-radius: 8px;
+	padding: 0px;
+	margin: 0px;
+}
+	
+#noticia {
+	padding: 0px 30px 10px 30px;
+	margin: 0px;
+	float: center;
+	text-align:center;
+}
+
+#noticia h2{
+	font-family:Rockwell Extra Bold;
+	font-size: 35px;
+}
+
+#noticia h3{
+	margin: 60px 0px 0px 0px;
+	font-family:Rockwell;
+}
+	
+#intro{
+	padding: 10px 30px 0px 30px;
+	margin: 30px;
+	text-align: center;
+}
+
+#intro img{
+	border-radius: 10px;
+}
+
+#entrevista{
+	padding: 10px 80px 0 50px;
+	margin: 10px;
+	text-align:left;
+}
+
+#entrevista p{
+	font-style: italic;
+}
+
+#votar {
+	float:center;
+}
+
+#contato{
+	padding: 50px 0px 100px 30px;
+	width: 450px;
+	float: left;
+	text-align:left;
+}
+
+#contato h1{
+	text-align:left;
+	margin: 0px ;
+	padding: 5px;
+	font-family:Rockwell Extra Bold;
+}
+
+#info {
+	padding: 30px 20px 150px 30px;
+	text-align: center;
+}
+
+#info h1{
+	padding: 5px;
+	font-family:Rockwell Extra Bold;
+}
+
+#info img {
+	width: 1cm;
+	height: 1cm;
+	margin: 3px 2px 0px 0px;
+}
+
+#cadastro{
+	padding: 30px 20px 150px 30px;
+	text-align: left;
+}
+
+#cadastro h1{
+	font-family:Rockwell Extra Bold;
+}
+
+#push{
+	padding: 10px 80px 0 50px;
+	margin: 10px;
+	text-align: center;
+}
+
+#push h2{
+	margin: 5px 30px 0px 30px;
+	text-align:center;
+	font-family:Rockwell Extra Bold;
+}
+
+#push h3{
+	text-align:center;
+	font-family:Rockwell;
+}
+
+#push img{
+	width: 600px;
+	height: 350px;
+	border-radius: 10px;
+}
+#footer {     
+	clear: both;
+	color: #290029;
+	background: yellow;
+	padding: 2px;
+}  
+
+#footer p {
+	color: white;
+	font-size: 15px;
+	text-align: center;
+}#musicas{
+	color: white;
+	}
+
+#musicas a{
+	color: black;
+	}
+
+
+	
+	
+	
+	
+	
+	
+	
+	
