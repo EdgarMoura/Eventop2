@@ -207,7 +207,7 @@ public class LoginCommand implements Command {
 
             case "delete.profile":
 
-                Long idusuariocliente = Long.parseLong(request.getParameter("id"));
+                Integer idusuariocliente = Integer.parseInt(request.getParameter("id"));
                 String userRemove = request.getParameter("username");
                 String pwdRemove = request.getParameter("pwd1");
 

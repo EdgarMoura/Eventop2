@@ -45,7 +45,7 @@ public class PermissaoDAO implements GenericDAO<Permissao> {
     }
 
     @Override
-    public Permissao findById(long id) {
+    public Permissao findById(Integer id) {
      Permissao permissao = em.find(Permissao.class, id);
     if(permissao==null){
         throw new DBException(DBExceptionEnum.FIND_ERROR);
@@ -55,7 +55,7 @@ public class PermissaoDAO implements GenericDAO<Permissao> {
     }
 
     @Override
-    public void remove(long id) {
+    public void remove(Integer id) {
      try{
          em.remove(em.find(Permissao.class, id));
      }catch(Exception ex){

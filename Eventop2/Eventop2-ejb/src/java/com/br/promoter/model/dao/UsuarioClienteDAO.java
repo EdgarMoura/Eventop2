@@ -45,7 +45,7 @@ public class UsuarioClienteDAO implements GenericDAO<UsuarioCliente> {
     }
 
     @Override
-    public UsuarioCliente findById(long id) {
+    public UsuarioCliente findById(Integer id) {
         UsuarioCliente usuarioCliente = em.find(UsuarioCliente.class, id);
         if (usuarioCliente == null) {
             throw new DBException(DBExceptionEnum.FIND_ERROR);
@@ -64,7 +64,7 @@ public class UsuarioClienteDAO implements GenericDAO<UsuarioCliente> {
     }
 
     @Override
-    public void remove(long id) {
+    public void remove(Integer id) {
         try {
             em.remove(em.find(UsuarioCliente.class, id));
         } catch (Exception ex) {

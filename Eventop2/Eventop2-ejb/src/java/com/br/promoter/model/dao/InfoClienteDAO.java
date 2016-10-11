@@ -45,7 +45,7 @@ public class InfoClienteDAO implements GenericDAO<InfoCliente> {
     }
 
     @Override
-    public InfoCliente findById(long id) {
+    public InfoCliente findById(Integer id) {
         InfoCliente infocliente = em.find(InfoCliente.class, id);
         if (infocliente == null) {
             throw new DBException(DBExceptionEnum.FIND_ERROR);
@@ -82,7 +82,7 @@ public class InfoClienteDAO implements GenericDAO<InfoCliente> {
     
     
     @Override
-    public void remove(long id) {
+    public void remove(Integer id) {
         try {
             em.remove(em.find(InfoCliente.class, id));
         } catch (Exception ex) {

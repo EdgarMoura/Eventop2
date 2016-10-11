@@ -38,7 +38,7 @@ public class InfoClienteCommand implements Command {
     public void execute() {
       String action = request.getParameter("action");
       
-      Long idinfocliente;
+        Integer idinfocliente;
         String nomecliente;
         String email;
         String dtaniversario;
@@ -53,7 +53,7 @@ public class InfoClienteCommand implements Command {
                 break;
             case "atualiza.confirma":
 
-                idinfocliente = Long.parseLong(request.getParameter("infoClientes"));
+                idinfocliente = Integer.parseInt(request.getParameter("infoClientes"));
                 nomecliente = request.getParameter("nomecliente");
                 email = request.getParameter("email");
                 dtaniversario = request.getParameter("aniversario");
@@ -130,7 +130,7 @@ public class InfoClienteCommand implements Command {
                 break;
             case "deleta.confirma":
 
-                idinfocliente = Long.parseLong(request.getParameter("infoClientes"));
+                idinfocliente = Integer.parseInt(request.getParameter("infoClientes"));
 
                 infoClienteDAO.remove(idinfocliente);
 

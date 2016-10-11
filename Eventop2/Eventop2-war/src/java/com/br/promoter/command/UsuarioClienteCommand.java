@@ -44,7 +44,7 @@ public class UsuarioClienteCommand implements Command {
     public void execute() {
         String action = request.getParameter("action");
 
-        Long idusuariocliente;
+        Integer idusuariocliente;
         String username;
         String senha;
         Integer idpermissao;
@@ -60,7 +60,7 @@ public class UsuarioClienteCommand implements Command {
                 break;
             case "atualiza.confirma":
 
-                idusuariocliente = Long.parseLong(request.getParameter("usuarioClientes"));
+                idusuariocliente = Integer.parseInt(request.getParameter("usuarioClientes"));
                 username = request.getParameter("username");
                 senha = request.getParameter("senha");
                 idpermissao = Integer.parseInt(request.getParameter("permissoes"));
@@ -94,7 +94,7 @@ public class UsuarioClienteCommand implements Command {
                 }
                 break;
             case "insere":
-                request.getSession().setAttribute("userTypes", permissaoDAO.find());
+                request.getSession().setAttribute("permissoes", permissaoDAO.find());
 
                 returnPage = "WEB-INF/jsp/usuariocliente/inserir.jsp";
                 break;
@@ -121,7 +121,7 @@ public class UsuarioClienteCommand implements Command {
 
                     try {
                        usuarioClienteDAO.persist(usuariocliente);
-                       request.getSession().setAttribute("userEvents", usuarioClienteDAO.find());
+                       request.getSession().setAttribute("usuarioClientes", usuarioClienteDAO.find());
 
                     } catch (DBException ex) {
                         request.getSession().setAttribute("errormsg", "<p class='msg'>Erro na conexão com o banco. Tente novamente!</p>");
@@ -138,7 +138,7 @@ public class UsuarioClienteCommand implements Command {
                 break;
             case "deleta.confirma":
 
-                 idusuariocliente = Long.parseLong(request.getParameter("usuarioClientes"));
+                 idusuariocliente = Integer.parseInt(request.getParameter("usuarioClientes"));
 
                 usuarioClienteDAO.remove(idusuariocliente);
 

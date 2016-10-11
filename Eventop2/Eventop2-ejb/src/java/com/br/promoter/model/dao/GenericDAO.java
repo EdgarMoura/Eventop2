@@ -15,8 +15,8 @@ import java.util.List;
 public interface GenericDAO<E> {
     public void persist (E e);
     public List<E> find();
-    public E findById(long id);
-    public void remove(long id);
+    public E findById(Integer id);
+    public void remove(Integer id);
     public void update(E e);
     
 }

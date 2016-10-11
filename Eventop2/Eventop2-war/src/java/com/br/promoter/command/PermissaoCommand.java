@@ -36,7 +36,7 @@ public class PermissaoCommand implements Command{
     @Override
     public void execute() {
       String action = request.getParameter("action");
-      Long idpermissao;
+      Integer idpermissao;
       String titlo;
        
       
@@ -49,7 +49,7 @@ public class PermissaoCommand implements Command{
                 break;
             case "atualiza.confirma":
 
-                idpermissao = Long.parseLong(request.getParameter("permissoes"));
+                idpermissao = Integer.parseInt(request.getParameter("permissoes"));
                 titlo = request.getParameter("titlo");
                 
                 
@@ -82,7 +82,7 @@ public class PermissaoCommand implements Command{
                 returnPage = "WEB-INF/jsp/permissao/deletar.jsp";
                 break;
             case "deleta.confirma":
-                idpermissao = Long.parseLong(request.getParameter("permissoes"));
+                idpermissao = Integer.parseInt(request.getParameter("permissoes"));
                 
                 permissaoDAO.remove(idpermissao);
                  
