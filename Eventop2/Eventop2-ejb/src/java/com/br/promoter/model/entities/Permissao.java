@@ -99,7 +99,7 @@ public class Permissao implements Serializable {
 
     @Override
     public String toString() {
-        return "com.br.promoter.model.entities.Permissao[ idpermissao=" + idpermissao + " ]";
+        return idpermissao+ " - " + titlo;
     }
     
 }

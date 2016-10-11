@@ -120,9 +120,10 @@ public class UsuarioCliente implements Serializable {
         return true;
     }
 
-    @Override
+   
+@Override
     public String toString() {
-        return "UsuarioCliente{" + "idusuariocliente=" + idusuariocliente + ", username=" + username + ", senha=" + senha + ", idpermissao=" + idpermissao + ", infoCliente=" + infoCliente + '}';
+        return idusuariocliente+" - " + username;
     }
 
     

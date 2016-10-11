@@ -5,10 +5,10 @@
       <nav class="navbar navbar-inverse">
                     <div class="container-fluid">
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="FrontController?command=User&action=home">Social Music</a>
+                            <a class="navbar-brand" href="FrontController?command=Login&action=home">Eventop</a>
                         </div>
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="FrontController?command=User&action=home">Home</a></li>
+                            <li class="active"><a href="FrontController?command=Login&action=home">Home</a></li>
                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Permissão de usuários<span class="caret"></span></a>
                                 <ul class="dropdown-menu"> 
                                 <li><a href="FrontController?command=Permissao&action=atualiza">Alterar permissão de usuário</a></li>
@@ -41,7 +41,7 @@
                 <nav class="navbar navbar-inverse">
                     <div class="container-fluid">
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="FrontController?command=Login&action=home">Social Music</a>
+                            <a class="navbar-brand" href="FrontController?command=Login&action=home">Eventop</a>
                         </div>
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="FrontController?command=Login&action=home">Home</a></li>
