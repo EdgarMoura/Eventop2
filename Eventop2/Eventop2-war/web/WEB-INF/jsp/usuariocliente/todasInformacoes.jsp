@@ -39,7 +39,7 @@
                             <td>${usuarioCliente.senha}</td>
                             <td>${usuarioCliente.idpermissao}</td>
                             <td>${usuarioCliente.infoCliente.nomecliente}</td>
-                            <td>${usuarioCliente.infocliente.email}</td>
+                            <td>${usuarioCliente.infoCliente.email}</td>
                             <td>${usuarioCliente.infoCliente.dtaniversario}</td>
                             <td>${usuarioCliente.infoCliente.cpf}</td>
                         </tr>
