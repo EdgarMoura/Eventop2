@@ -23,7 +23,7 @@ import javax.persistence.PersistenceContextType;
 @LocalBean
 public class InfoClienteDAO implements GenericDAO<InfoCliente> {
 
-    @PersistenceContext(unitName = "Projeto_promoter_pu", type = PersistenceContextType.TRANSACTION)
+    @PersistenceContext(unitName = "Eventop2_pu", type = PersistenceContextType.TRANSACTION)
     EntityManager em;
 
     @Override
