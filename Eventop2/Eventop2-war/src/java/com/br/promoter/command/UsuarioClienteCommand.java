@@ -85,7 +85,7 @@ public class UsuarioClienteCommand implements Command {
 
                     try {
                         usuarioClienteDAO.update(usuariocliente);
-                        request.getSession().setAttribute("userEvents", usuarioClienteDAO.find());
+                        request.getSession().setAttribute("usuarioClientes", usuarioClienteDAO.find());
                     } catch (DBException ex) {
                         request.getSession().setAttribute("errormsg", "<p class='msg'>Erro na conexão com o banco. Tente novamente!</p>");
                         returnPage = "WEB-INF/jsp/usuariocliente/atualizar.jsp";

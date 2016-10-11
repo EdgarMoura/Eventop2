@@ -52,8 +52,8 @@
                                     <option value="${usuarioCliente.idusuariocliente}">${usuarioCliente.username}</option>
                                 </c:forEach>
                             </select></p>
-                        <label>Novo username:</label>  <p><input type="text" name="username" required="required"/></p>
-                        <label>Nova senha:</label>  <p><input type="password" name="senha" required="required"/></p>
+                        <label>Novo username:</label>  <p><input type="text" name="username" value="${usuarioCliente.username}" equired="required"/></p>
+                        <label>Nova senha:</label>  <p><input type="password" name="senha" value="${usuarioCliente.senha}" required="required"/></p>
                         <label>Tipo de Usuário</label>
                         <p><select name="permissoes">
                                 <option value="">-- Selecione um tipo de usuario --</option>
