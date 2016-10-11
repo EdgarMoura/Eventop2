@@ -12,7 +12,8 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <%@include file="../menu.jspf" %>
+        <%@include file="../menu.jspf"%>
+
         ${returnMsg}
         ${returnMsg=null}
         <div class="container">

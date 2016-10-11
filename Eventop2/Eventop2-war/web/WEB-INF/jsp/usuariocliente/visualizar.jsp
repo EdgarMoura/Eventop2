@@ -22,17 +22,17 @@
                     <tr>
                         <td>ID</td>
                         <td>USERNAME</td> 
-                        <td>PASSWORD</td> 
-                        <td>FK_USERTYPE</td>
+                        <td>SENHA</td> 
+                        <td>ID_PERMISSAO</td>
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach items="${userEvents}" var="userEvent">
+                    <c:forEach items="${usuarioClientes}" var="usuarioCliente">
                         <tr>
-                            <td>${userEvent.idUserevent}</td>
-                            <td>${userEvent.username}</td>
-                            <td>${userEvent.password}</td>
-                            <td>${userEvent.fkUsertype}</td>
+                            <td>${usuarioCliente.idusuariocliente}</td>
+                            <td>${usuarioCliente.username}</td>
+                            <td>${usuarioCliente.senha}</td>
+                            <td>${usuarioCliente.idpermissao}</td>
                         </tr>
                     </c:forEach>
                 </tbody>
