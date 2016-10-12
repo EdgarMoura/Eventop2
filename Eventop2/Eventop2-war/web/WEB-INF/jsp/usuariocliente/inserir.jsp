@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Inserir usuários do evento</title>
+        <title>Inserir usuários da Eventop</title>
         <link rel="icon" href="img/favicon.ico" />
         <link href="css/cssForm.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -19,7 +19,7 @@
             <article>  
                 <fieldset class="cadastro">
                     <form action="FrontController" method="POST" id="cadastro">
-                        <legend>Inserir usuários do evento</legend>
+                        <legend>Inserir usuários da Eventop</legend>
                         <label>Novo username:</label> <p><input type="text" name="username" required="required"/></p>
                         <label>Nova senha:</label> <p><input type="text" name="senha" required="required"/></p>
                         <label>Tipo de Usuário</label>

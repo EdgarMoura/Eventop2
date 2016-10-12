@@ -25,7 +25,7 @@
         </script>
     </head>
     <body>
-        <%@include file="userAdmin/jsp/menu.jspf"%>
+        <%@include file="WEB-INF/jsp/menu.jspf" %>
         <div class="container">
            ${errormsg}
            ${errormsg=null}
@@ -36,15 +36,15 @@
                     <form action="FrontController"  method="POST" id="cadastro" >
                         <legend>Alterar os dados da sua conta</legend>
                         <input type="hidden" name="user" value="${username.username}"/>
-                        <input type="hidden" name="fullnameh" value="${username.infoUser.fullname}"/>
-                        <label>Nome completo: </label><p><input type="text" name="fullname" /></p>
-                        <label>Nome de Usuário: </label><p><input type="text" name="username"/></p>
-                        <label>Senha: </label><p><input type="password" name="pwd1"  /></p>
-                        <label>Confirmar senha: </label><p><input type="password" name="pwd2"/></p>
-                        <label>Email: </label><p><input type="email" name="email"  /></p>
+                        <input type="hidden" name="fullnameh" value="${username.infoCliente.nomecliente}"/>
+                        <label>Nome completo: </label><p><input type="text" name="fullname" value="${username.infoCliente.nomecliente}"/></p>
+                        <label>Nome de Usuário: </label><p><input type="text" name="username"value="${username.username}"/></p>
+                        <label>Senha: </label><p><input type="password" name="pwd1" value="${username.senha}" /></p>
+                        <label>Confirmar senha: </label><p><input type="password" name="pwd2" value="${username.senha}"/></p>
+                        <label>Email: </label><p><input type="email" name="email" value="${username.infoCliente.email}" /></p>
                         <label>Data de aniversário:</label><p><input type="text" name="bday" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" /></p>
-                        <input type="hidden" name="command" value="User" />
-                        <input type="hidden" name="action" value="update.profile" />
+                        <input type="hidden" name="command" value="Cliente" />
+                        <input type="hidden" name="action" value="atualiza.perfil" />
                         <p><input type="submit" value="Alterar" /></p>
                     </form>
                 </fieldset>     

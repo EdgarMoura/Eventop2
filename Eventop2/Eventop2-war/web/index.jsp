@@ -49,7 +49,7 @@
                 <p><input type="password" name="senha" placeholder="Sua Senha *" value="${cookie.passwordCookie.value}" /></p>
                 <p><input type="checkbox" name="on" checked="checked"><b> Mantenha-me conectado</b></p>
                 <p><input type="submit" value="Acessar"></p>
-                <input type="hidden" name="command" value="Login" />
+                <input type="hidden" name="command" value="Cliente" />
                 <input type="hidden" name="action" value="login" />
                 <input type="hidden" name="action2" value="visualizar2" />
                
@@ -72,7 +72,7 @@
                 <p><input type="text" name="cpf" placeholder="000.000.000-00" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)" required="required" />*</p>
                 <b><span>Aniversário:</span></b>
                 <p><input type="text" name="aniversario" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)"required="required" /> *</p>
-                <input type="hidden" name="command" value="Login" />
+                <input type="hidden" name="command" value="Cliente" />
                 <input type="hidden" name="action" value="registrar" />
                 <p><input type="submit" value="Cadastrar" /></p>				
             </form>

@@ -44,8 +44,8 @@
             <article>  
                 <fieldset class="cadastro">
                     <form action="FrontController" method="POST" id="cadastro">
-                        <legend>Alterar usuários do evento:</legend>
-                        <label>Usuários do Evento:</label> 
+                        <legend>Alterar usuários da Eventop:</legend>
+                        <label>Usuários da Eventop:</label> 
                         <p><select name="usuarioClientes">
                                 <option value="">-- Selecione um username --</option>
                                 <c:forEach items="${usuarioClientes}" var="usuarioCliente">

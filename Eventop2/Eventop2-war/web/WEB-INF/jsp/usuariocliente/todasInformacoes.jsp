@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Visualizar </title>
+        <title>Visualizar todos os dados de usuários da Eventop</title>
         <link rel="icon" href="img/favicon.ico" />
         <link href="css/cssForm.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">

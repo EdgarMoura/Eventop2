@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author moura
  */
-public class LoginCommand implements Command {
+public class ClienteCommand implements Command {
 
     UsuarioClienteDAO usuarioClienteDAO = lookupUsuarioClienteDAOBean();
     PermissaoDAO permissaoDAO = lookupPermissaoDAOBean();
@@ -146,7 +146,7 @@ public class LoginCommand implements Command {
                 returnPage = "index.jsp";
                 break;
 
-            case "update.profile":
+            case "atualiza.perfil":
                 String userteste = request.getParameter("user");
                 String fullnameh = request.getParameter("fullnameh");
                 String nomeCliente1 = request.getParameter("nomecliente");
@@ -160,16 +160,23 @@ public class LoginCommand implements Command {
 
                 UsuarioCliente usuariocliente = usuarioClienteDAO.findByName(username3);
                 InfoCliente infoEmail = infoClienteDAO.findByEmail(email1);
+                InfoCliente infoCpf = infoClienteDAO.findByCpf(cpf1);
+                
                 if (usuariocliente != null) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Usuário já existente!</p>");
-                    returnPage = "updateProfile.jsp";
+                    returnPage = "atualizaPerfil.jsp";
 
                 } else if (infoEmail != null) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Email já cadastrado!</p>");
-                    returnPage = "updateProfile.jsp";
-                } else if (nomeCliente1.isEmpty() && username3.isEmpty() && password1.isEmpty() && password2.isEmpty() && dtaniversario.isEmpty() && email1.isEmpty()) {
+                    returnPage = "atualizaPerfil.jsp";
+                    
+                }else if (infoCpf != null){
+                    request.getSession().setAttribute("errormsg", "<p class='msg'>CPF já cadastrado!</p>");
+                    returnPage ="atualizaPerfil.jsp";
+                    
+                }else if (nomeCliente1.isEmpty() && username3.isEmpty() && password1.isEmpty() && password2.isEmpty() && dtaniversario.isEmpty() && email1.isEmpty()) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Preencha o formulário!</p>");
-                    returnPage = "updateProfile.jsp";
+                    returnPage = "atualizaPerfil.jsp";
                 } else if (password1.equals(password2)) {
 
                     Permissao permissao = new Permissao();
@@ -192,20 +199,20 @@ public class LoginCommand implements Command {
                     try {
 
                         usuarioClienteDAO.update(uc);
-                        returnPage = "updateProfile.jsp";
+                        returnPage = "atualizaPerfil.jsp";
                         request.getSession().setAttribute("sucessmsg", "<p class='msgregister'>Dados alterado com sucesso!</p>");
                     } catch (DBException ex) {
                         request.getSession().setAttribute("errormsg", "<p class='msg'>Erro na conexão com o banco. Tente novamente!</p>");
-                        returnPage = "updateProfile.jsp";
+                        returnPage = "atualizaPerfil.jsp";
                     }
                 } else {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Senhas não conferem!</p>");
-                    returnPage = "updateProfile.jsp";
+                    returnPage = "atualizaPerfil.jsp";
                 }
 
                 break;
 
-            case "delete.profile":
+            case "deleta.perfil":
 
                 Integer idusuariocliente = Integer.parseInt(request.getParameter("id"));
                 String userRemove = request.getParameter("username");
@@ -222,17 +229,17 @@ public class LoginCommand implements Command {
                         returnPage = "index.jsp";
                     } else {
                         request.getSession().setAttribute("errormsg", "<p class='msg'> Usuário ou Senha incorretos!</p>");
-                        returnPage = "deleteProfile.jsp";
+                        returnPage = "deletaPerfil.jsp";
                     }
 
                 } catch (Exception ex4) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Erro na conexão com o banco. Tente novamente!</p>");
-                    returnPage = "deleteProfile.jsp";
+                    returnPage = "deletaPerfil.jsp";
                 }
                 break;
-            case "read":
+            case "visualiza":
 
-                request.getSession().setAttribute("userEvents", usuarioClienteDAO.find());
+                request.getSession().setAttribute("usuarioClientes", usuarioClienteDAO.find());
                 break;
             case "home":
                 returnPage = "home.jsp";

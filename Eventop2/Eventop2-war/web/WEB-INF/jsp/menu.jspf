@@ -5,11 +5,19 @@
       <nav class="navbar navbar-inverse">
                     <div class="container-fluid">
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="FrontController?command=Login&action=home">Eventop</a>
+                            <a class="navbar-brand" href="FrontController?command=Cliente&action=home">Eventop</a>
                         </div>
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="FrontController?command=Login&action=home">Home</a></li>
-                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Permissão de usuários<span class="caret"></span></a>
+                            <li class="active"><a href="FrontController?command=Cliente&action=home">Home</a></li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Serviços<span class="caret"></span></a>
+                                <ul class="dropdown-menu"> 
+                                <li><a href="FrontController?command=Servico&action=atualiza">Alterar serviços</a></li>
+                                <li><a href="FrontController?command=Servico&action=insere">Inserir serviços</a></li>
+                                <li><a href="FrontController?command=Servico&action=deleta">Remover serviços</a></li>
+                                <li><a href="FrontController?command=Servico&action=visualiza">Visualizar serviços</a></li> 
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Permissão do usuário<span class="caret"></span></a>
                                 <ul class="dropdown-menu"> 
                                 <li><a href="FrontController?command=Permissao&action=atualiza">Alterar permissão de usuário</a></li>
                                 <li><a href="FrontController?command=Permissao&action=insere">Inserir permissão de usuário</a></li>
@@ -20,10 +28,10 @@
                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuários<span class="caret"></span></a>
                                 <ul class="dropdown-menu"> 
                                 <li><a href="FrontController?command=UsuarioCliente&action=visualizaTudo"><b>Visualizar todos os dados</b></a></li>
-                                <li><a href="FrontController?command=UsuarioCliente&action=atualiza">Alterar usuário do evento</a></li>
-                                <li><a href="FrontController?command=UsuarioCliente&action=insere">Inserir usuário do evento</a></li>
-                                <li><a href="FrontController?command=UsuarioCliente&action=deleta">Remover usuário do evento</a></li>
-                                <li><a href="FrontController?command=UsuarioCliente&action=visualiza">Visualizar usuário do evento</a></li>
+                                <li><a href="FrontController?command=UsuarioCliente&action=atualiza">Alterar usuário da Eventop</a></li>
+                                <li><a href="FrontController?command=UsuarioCliente&action=insere">Inserir usuário da Eventop</a></li>
+                                <li><a href="FrontController?command=UsuarioCliente&action=deleta">Remover usuário da Eventop </a></li>
+                                <li><a href="FrontController?command=UsuarioCliente&action=visualiza">Visualizar usuário da Eventop </a></li>
                                 <li><a href="FrontController?command=InfoCliente&action=atualiza">Alterar informações de usuário</a></li>
                                 <li><a href="FrontController?command=InfoCliente&action=insere">Inserir informações de usuário</a></li>
                                 <li><a href="FrontController?command=InfoCliente&action=deleta">Remover informações de usuário</a></li>
@@ -32,7 +40,7 @@
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="FrontController?command=Login&action=logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                            <li><a href="FrontController?command=Cliente&action=logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -41,27 +49,21 @@
                 <nav class="navbar navbar-inverse">
                     <div class="container-fluid">
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="FrontController?command=Login&action=home">Eventop</a>
+                            <a class="navbar-brand" href="FrontController?command=Cliente&action=home">Eventop</a>
                         </div>
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="FrontController?command=Login&action=home">Home</a></li>
-                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Eventos <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="FrontController?command=Event&action=events">Serviços</a></li>
-                                    <li><a href="FrontController?command=Participant&action=insert.participants">Participar Eventos</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="FrontController?command=Festival&action=read">Festivais</a></li>
+                            <li class="active"><a href="FrontController?command=Cliente&action=home">Home</a></li>
+                            <li><a href="FrontController?command=Orçamento&action=">Orçamentos</a></li>
                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Seu Perfil  <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="updateProfile.jsp">Alterar perfil</a></li>
-                                    <li><a href="profile.jsp">Visualizar perfil</a></li>
-                                    <li><a href="deleteProfile.jsp">Remover sua conta</a></li>
+                                    <li><a href="atualizaPerfil.jsp">Alterar perfil</a></li>
+                                    <li><a href="perfil.jsp">Visualizar perfil</a></li>
+                                    <li><a href="deletaPerfil.jsp">Remover sua conta</a></li>
                                 </ul>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="FrontController?command=User&action=logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                            <li><a href="FrontController?command=Cliente&action=logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                         </ul>
                     </div>
                 </nav>

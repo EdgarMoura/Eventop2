@@ -13,7 +13,7 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <%@include file="userAdmin/jsp/menu.jspf" %>
+       <%@include file="WEB-INF/jsp/menu.jspf" %>
         <div class="container">
            ${errormsg}
            ${errormsg=null}
@@ -21,7 +21,7 @@
                 <fieldset class="cadastro">
                     <form action="FrontController"  method="POST" id="cadastro" >
                         <legend>Confirmação de remoção da sua conta</legend>
-                        <input type="hidden" name="id" value="${username.idUserevent}"/> 
+                        <input type="hidden" name="id" value="${username.idusuariocliente}"/> 
                         <label>Nome de Usuário: </label><p><input type="text" name="username"/></p>
                         <label>Senha: </label><p><input type="password" name="pwd1" /></p>
                         <input type="hidden" name="command" value="User" />

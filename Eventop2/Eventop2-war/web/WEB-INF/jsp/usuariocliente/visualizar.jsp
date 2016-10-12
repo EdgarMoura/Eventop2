@@ -16,7 +16,7 @@
         ${returnMsg}
         ${returnMsg=null}
         <div class="container">
-            <h3>Visualizar usuários dos eventos</h3>        
+            <h3>Visualizar usuários da Eventop</h3>        
             <table class="table table-striped">
                 <thead>
                     <tr>
