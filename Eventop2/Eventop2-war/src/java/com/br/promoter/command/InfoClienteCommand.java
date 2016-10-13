@@ -8,7 +8,6 @@ package com.br.promoter.command;
 import com.br.promoter.exceptions.DBException;
 import com.br.promoter.model.dao.InfoClienteDAO;
 import com.br.promoter.model.entities.InfoCliente;
-import com.br.promoter.util.DateUtil;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.Context;
@@ -41,7 +40,7 @@ public class InfoClienteCommand implements Command {
         Integer idinfocliente;
         String nomecliente;
         String email;
-        String dtaniversario;
+        String telefone;
         String cpf;
 
         switch (action) {
@@ -56,7 +55,7 @@ public class InfoClienteCommand implements Command {
                 idinfocliente = Integer.parseInt(request.getParameter("infoClientes"));
                 nomecliente = request.getParameter("nomecliente");
                 email = request.getParameter("email");
-                dtaniversario = request.getParameter("aniversario");
+                telefone = request.getParameter("telefone");
                 cpf = request.getParameter("cpf");
                
                 
@@ -65,7 +64,7 @@ public class InfoClienteCommand implements Command {
                      infocliente = infoClienteDAO.findById(idinfocliente);
                      infocliente.setNomecliente(nomecliente);
                      infocliente.setEmail(email);
-                     infocliente.setDtaniversario(DateUtil.string2dateOnly(dtaniversario));
+                     infocliente.setTelefone(telefone);
                      infocliente.setCpf(cpf);
                              
                    
@@ -88,7 +87,7 @@ public class InfoClienteCommand implements Command {
 
                 nomecliente = request.getParameter("nomecliente");
                 email = request.getParameter("email");
-                dtaniversario = request.getParameter("aniversario");
+                telefone = request.getParameter("telefone");
                 cpf = request.getParameter("cpf");
 
                 
@@ -102,7 +101,7 @@ public class InfoClienteCommand implements Command {
                 }else if(infoCpf != null){ 
                  request.getSession().setAttribute("errormsg", "<p class='msg'>CPF já existente!</p>");
                  returnPage = "WEB-INF/jsp/infocliente/inserir.jsp";
-                }else if (nomecliente.isEmpty() && email.isEmpty() && dtaniversario.isEmpty()) {
+                }else if (nomecliente.isEmpty() && email.isEmpty() && telefone.isEmpty()) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Preencha o formulário!</p>");
                     returnPage = "WEB-INF/jsp/infocliente/inserir.jsp";
                 } else {
@@ -110,7 +109,7 @@ public class InfoClienteCommand implements Command {
                     infocliente = new InfoCliente();
                     infocliente.setNomecliente(nomecliente);
                     infocliente.setEmail(email);
-                    infocliente.setDtaniversario(DateUtil.string2dateOnly(dtaniversario));
+                    infocliente.setTelefone(telefone);
                     infocliente.setCpf(cpf);
                     
                     

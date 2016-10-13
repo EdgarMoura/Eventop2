@@ -23,7 +23,7 @@
                         <td>ID</td>
                         <td>NOME COMPLETO</td> 
                         <td>EMAIL</td> 
-                        <td>ANIVERSÁRIO</td> 
+                        <td>TELEFONE</td> 
                         <td>CPF</td> 
 
                     </tr>
@@ -34,7 +34,7 @@
                             <td>${infoCliente.idinfocliente}</td>
                             <td>${infoCliente.nomecliente}</td>
                             <td>${infoCliente.email}</td>
-                            <td>${infoCliente.dtaniversario}</td>
+                            <td>${infoCliente.telefone}</td>
                             <td>${infoCliente.cpf}</td>
                         </tr>
                     </c:forEach>

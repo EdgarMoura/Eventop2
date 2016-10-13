@@ -70,8 +70,8 @@
                 <p><input type="email" name="email" placeholder="Email" required="required" />*</p>
                 <b><span>CPF:</span></b>
                 <p><input type="text" name="cpf" placeholder="000.000.000-00" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)" required="required" />*</p>
-                <b><span>Aniversário:</span></b>
-                <p><input type="text" name="aniversario" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)"required="required" /> *</p>
+                <b><span>Telefone:</span></b>
+                <p><input type="text" name="telefone" placeholder="(xx)xxxxxxxxx" maxlength="13" OnKeyPress="formatar('(##)', this)"required="required" /> *</p>
                 <input type="hidden" name="command" value="Cliente" />
                 <input type="hidden" name="action" value="registrar" />
                 <p><input type="submit" value="Cadastrar" /></p>				

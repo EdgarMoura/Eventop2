@@ -6,7 +6,6 @@
 package com.br.promoter.model.entities;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,8 +17,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -35,7 +32,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "InfoCliente.findByIdinfocliente", query = "SELECT i FROM InfoCliente i WHERE i.idinfocliente = :idinfocliente"),
     @NamedQuery(name = "InfoCliente.findByNomecliente", query = "SELECT i FROM InfoCliente i WHERE i.nomecliente = :nomecliente"),
     @NamedQuery(name = "InfoCliente.findByEmail", query = "SELECT i FROM InfoCliente i WHERE i.email = :email"),
-    @NamedQuery(name = "InfoCliente.findByDtaniversario", query = "SELECT i FROM InfoCliente i WHERE i.dtaniversario = :dtaniversario"),
+    @NamedQuery(name = "InfoCliente.findByTelefone", query = "SELECT i FROM InfoCliente i WHERE i.telefone = :telefone"),
     @NamedQuery(name = "InfoCliente.findByCpf", query = "SELECT i FROM InfoCliente i WHERE i.cpf = :cpf")})
 public class InfoCliente implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -51,9 +48,9 @@ public class InfoCliente implements Serializable {
     @Size(max = 130)
     @Column(name = "EMAIL")
     private String email;
-    @Column(name = "DTANIVERSARIO")
-    @Temporal(TemporalType.DATE)
-    private Date dtaniversario;
+    @Size(max = 20)
+    @Column(name = "TELEFONE")
+    private String telefone;
     @Size(max = 16)
     @Column(name = "CPF")
     private String cpf;
@@ -92,12 +89,12 @@ public class InfoCliente implements Serializable {
         this.email = email;
     }
 
-    public Date getDtaniversario() {
-        return dtaniversario;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setDtaniversario(Date dtaniversario) {
-        this.dtaniversario = dtaniversario;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     public String getCpf() {
@@ -138,7 +135,7 @@ public class InfoCliente implements Serializable {
 
     @Override
     public String toString() {
-        return idinfocliente+"" +nomecliente +  dtaniversario + usuarioCliente;
+        return "com.br.promoter.model.entities.InfoCliente[ idinfocliente=" + idinfocliente + " ]";
     }
     
 }

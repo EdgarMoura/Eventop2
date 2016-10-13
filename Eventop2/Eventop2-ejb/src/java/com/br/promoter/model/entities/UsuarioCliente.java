@@ -6,6 +6,7 @@
 package com.br.promoter.model.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -17,10 +18,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -50,6 +53,10 @@ public class UsuarioCliente implements Serializable {
     @JoinColumn(name = "IDPERMISSAO", referencedColumnName = "IDPERMISSAO")
     @ManyToOne
     private Permissao idpermissao;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuariocliente")
+    private List<Orcamento> orcamentoList;
+    @OneToMany(mappedBy = "idusuariocliente")
+    private List<Endereco> enderecoList;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "usuarioCliente")
     private InfoCliente infoCliente;
 
@@ -92,6 +99,24 @@ public class UsuarioCliente implements Serializable {
         this.idpermissao = idpermissao;
     }
 
+    @XmlTransient
+    public List<Orcamento> getOrcamentoList() {
+        return orcamentoList;
+    }
+
+    public void setOrcamentoList(List<Orcamento> orcamentoList) {
+        this.orcamentoList = orcamentoList;
+    }
+
+    @XmlTransient
+    public List<Endereco> getEnderecoList() {
+        return enderecoList;
+    }
+
+    public void setEnderecoList(List<Endereco> enderecoList) {
+        this.enderecoList = enderecoList;
+    }
+
     public InfoCliente getInfoCliente() {
         return infoCliente;
     }
@@ -120,12 +145,9 @@ public class UsuarioCliente implements Serializable {
         return true;
     }
 
-   
-@Override
+    @Override
     public String toString() {
-        return idusuariocliente+" - " + username;
+        return "com.br.promoter.model.entities.UsuarioCliente[ idusuariocliente=" + idusuariocliente + " ]";
     }
-
-    
     
 }

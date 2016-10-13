@@ -12,7 +12,6 @@ import com.br.promoter.model.dao.UsuarioClienteDAO;
 import com.br.promoter.model.entities.InfoCliente;
 import com.br.promoter.model.entities.Permissao;
 import com.br.promoter.model.entities.UsuarioCliente;
-import com.br.promoter.util.DateUtil;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.Context;
@@ -53,7 +52,7 @@ public class ClienteCommand implements Command {
                 String username = request.getParameter("username");
                 String senha1 = request.getParameter("senha1");
                 String senha2 = request.getParameter("senha2");
-                String dtAniversario = request.getParameter("aniversario");
+                String telefone = request.getParameter("telefone");
                 String email = request.getParameter("email");
                 String cpf = request.getParameter("cpf");
                 Integer idpermissao = 2;
@@ -80,7 +79,7 @@ public class ClienteCommand implements Command {
                     InfoCliente infocliente = new InfoCliente();
                     infocliente.setNomecliente(nomeCliente);
                     infocliente.setEmail(email);
-                    infocliente.setDtaniversario(DateUtil.string2dateOnly(dtAniversario));
+                    infocliente.setTelefone(telefone);
                     infocliente.setCpf(cpf);
 
                     UsuarioCliente uc = new UsuarioCliente();
@@ -153,7 +152,7 @@ public class ClienteCommand implements Command {
                 String username3 = request.getParameter("username");
                 String password1 = request.getParameter("pwd1");
                 String password2 = request.getParameter("pwd2");
-                String dtaniversario = request.getParameter("bday");
+                String telefone1 = request.getParameter("telefone");
                 String email1 = request.getParameter("email");
                 String cpf1 = request.getParameter("cpf");
                 Integer idPermissao = 2;
@@ -174,7 +173,7 @@ public class ClienteCommand implements Command {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>CPF já cadastrado!</p>");
                     returnPage ="atualizaPerfil.jsp";
                     
-                }else if (nomeCliente1.isEmpty() && username3.isEmpty() && password1.isEmpty() && password2.isEmpty() && dtaniversario.isEmpty() && email1.isEmpty()) {
+                }else if (nomeCliente1.isEmpty() && username3.isEmpty() && password1.isEmpty() && password2.isEmpty() && telefone1.isEmpty() && email1.isEmpty()) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Preencha o formulário!</p>");
                     returnPage = "atualizaPerfil.jsp";
                 } else if (password1.equals(password2)) {
@@ -185,7 +184,7 @@ public class ClienteCommand implements Command {
                     InfoCliente infocliente = new InfoCliente();
                     infocliente.setNomecliente(nomeCliente1);
                     infocliente.setEmail(email1);
-                    infocliente.setDtaniversario(DateUtil.string2dateOnly(dtaniversario));
+                    infocliente.setTelefone(telefone1);
                     infocliente.setCpf(cpf1);
 
                     UsuarioCliente uc;
