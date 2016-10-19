@@ -32,8 +32,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "InfoCliente.findByIdinfocliente", query = "SELECT i FROM InfoCliente i WHERE i.idinfocliente = :idinfocliente"),
     @NamedQuery(name = "InfoCliente.findByNomecliente", query = "SELECT i FROM InfoCliente i WHERE i.nomecliente = :nomecliente"),
     @NamedQuery(name = "InfoCliente.findByEmail", query = "SELECT i FROM InfoCliente i WHERE i.email = :email"),
-    @NamedQuery(name = "InfoCliente.findByTelefone", query = "SELECT i FROM InfoCliente i WHERE i.telefone = :telefone"),
-    @NamedQuery(name = "InfoCliente.findByCpf", query = "SELECT i FROM InfoCliente i WHERE i.cpf = :cpf")})
+    @NamedQuery(name = "InfoCliente.findByTelefone", query = "SELECT i FROM InfoCliente i WHERE i.telefone = :telefone")})
 public class InfoCliente implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -48,12 +47,9 @@ public class InfoCliente implements Serializable {
     @Size(max = 130)
     @Column(name = "EMAIL")
     private String email;
-    @Size(max = 20)
+    @Size(max = 18)
     @Column(name = "TELEFONE")
     private String telefone;
-    @Size(max = 16)
-    @Column(name = "CPF")
-    private String cpf;
     @JoinColumn(name = "IDINFOCLIENTE", referencedColumnName = "IDUSUARIOCLIENTE", insertable = false, updatable = false)
     @OneToOne(optional = false)
     private UsuarioCliente usuarioCliente;
@@ -95,14 +91,6 @@ public class InfoCliente implements Serializable {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
     }
 
     public UsuarioCliente getUsuarioCliente() {

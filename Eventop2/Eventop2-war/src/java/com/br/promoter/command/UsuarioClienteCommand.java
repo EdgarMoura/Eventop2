@@ -47,7 +47,7 @@ public class UsuarioClienteCommand implements Command {
         Integer idusuariocliente;
         String username;
         String senha;
-        Integer idpermissao;
+        Integer fkPermissao;
         Permissao permissao;
 
         switch (action) {
@@ -63,7 +63,7 @@ public class UsuarioClienteCommand implements Command {
                 idusuariocliente = Integer.parseInt(request.getParameter("usuarioClientes"));
                 username = request.getParameter("username");
                 senha = request.getParameter("senha");
-                idpermissao = Integer.parseInt(request.getParameter("permissoes"));
+                fkPermissao = Integer.parseInt(request.getParameter("permissoes"));
 
                 UsuarioCliente usuariocliente;
                  usuariocliente = usuarioClienteDAO.findByName(username);
@@ -74,12 +74,12 @@ public class UsuarioClienteCommand implements Command {
 
                 } else {
                     permissao = new Permissao(); 
-                    permissao.setIdpermissao(idpermissao);
+                    permissao.setIdpermissao(fkPermissao);
                     
                     usuariocliente = usuarioClienteDAO.findById(idusuariocliente);
                     usuariocliente.setUsername(username);
                     usuariocliente.setSenha(senha);
-                    usuariocliente.setIdpermissao(permissao);
+                    usuariocliente.setFkPermissao(permissao);
                     
                    
 
@@ -102,7 +102,7 @@ public class UsuarioClienteCommand implements Command {
 
                 username = request.getParameter("username");
                 senha = request.getParameter("senha");
-                idpermissao = Integer.parseInt(request.getParameter("permissoes"));
+                fkPermissao = Integer.parseInt(request.getParameter("permissoes"));
 
                 UsuarioCliente usuarioCliente = usuarioClienteDAO.findByName(username);
 
@@ -112,12 +112,12 @@ public class UsuarioClienteCommand implements Command {
                 } else {
                     
                     permissao = new Permissao(); 
-                    permissao.setIdpermissao(idpermissao);
+                    permissao.setIdpermissao(fkPermissao);
                     
                     usuariocliente = new UsuarioCliente();
                     usuariocliente.setUsername(username);
                     usuariocliente.setSenha(senha);
-                    usuariocliente.setIdpermissao(permissao);
+                    usuariocliente.setFkPermissao(permissao);
 
                     try {
                        usuarioClienteDAO.persist(usuariocliente);

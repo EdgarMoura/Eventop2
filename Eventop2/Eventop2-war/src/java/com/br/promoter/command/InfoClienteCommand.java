@@ -41,7 +41,7 @@ public class InfoClienteCommand implements Command {
         String nomecliente;
         String email;
         String telefone;
-        String cpf;
+        
 
         switch (action) {
             case "atualiza":
@@ -56,7 +56,7 @@ public class InfoClienteCommand implements Command {
                 nomecliente = request.getParameter("nomecliente");
                 email = request.getParameter("email");
                 telefone = request.getParameter("telefone");
-                cpf = request.getParameter("cpf");
+                
                
                 
                 
@@ -65,7 +65,7 @@ public class InfoClienteCommand implements Command {
                      infocliente.setNomecliente(nomecliente);
                      infocliente.setEmail(email);
                      infocliente.setTelefone(telefone);
-                     infocliente.setCpf(cpf);
+                     
                              
                    
 
@@ -88,19 +88,17 @@ public class InfoClienteCommand implements Command {
                 nomecliente = request.getParameter("nomecliente");
                 email = request.getParameter("email");
                 telefone = request.getParameter("telefone");
-                cpf = request.getParameter("cpf");
+                
 
                 
                 
                 InfoCliente infoEmail = infoClienteDAO.findByEmail(email);
-                InfoCliente infoCpf = infoClienteDAO.findByCpf(cpf);
+                
 
                 if (infoEmail != null) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Email já existente!</p>");
                     returnPage = "WEB-INF/jsp/infocliente/inserir.jsp";
-                }else if(infoCpf != null){ 
-                 request.getSession().setAttribute("errormsg", "<p class='msg'>CPF já existente!</p>");
-                 returnPage = "WEB-INF/jsp/infocliente/inserir.jsp";
+                
                 }else if (nomecliente.isEmpty() && email.isEmpty() && telefone.isEmpty()) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Preencha o formulário!</p>");
                     returnPage = "WEB-INF/jsp/infocliente/inserir.jsp";
@@ -110,7 +108,7 @@ public class InfoClienteCommand implements Command {
                     infocliente.setNomecliente(nomecliente);
                     infocliente.setEmail(email);
                     infocliente.setTelefone(telefone);
-                    infocliente.setCpf(cpf);
+                    
                     
                     
                    

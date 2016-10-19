@@ -32,7 +32,7 @@
                             <td>${usuarioCliente.idusuariocliente}</td>
                             <td>${usuarioCliente.username}</td>
                             <td>${usuarioCliente.senha}</td>
-                            <td>${usuarioCliente.idpermissao}</td>
+                            <td>${usuarioCliente.fkPermissao}</td>
                         </tr>
                     </c:forEach>
                 </tbody>

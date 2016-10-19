@@ -36,15 +36,19 @@ public class FrontController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=ISO-8859-1");
         try (PrintWriter out = response.getWriter()) {
-           String command = request.getParameter("command");
+            String command = request.getParameter("command");
             try {
                 Command c = (Command) Class.forName("com.br.promoter.command."+command+"Command").newInstance();
                 c.init(request, response);
-                c.execute();
+                c.execute();  
                 request.getRequestDispatcher(c.getReturnPage()).forward(request, response);
-            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+            } catch (ClassNotFoundException ex) {
+               
+                Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InstantiationException | IllegalAccessException ex) {
                 Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
             }
+
         }
     }
 

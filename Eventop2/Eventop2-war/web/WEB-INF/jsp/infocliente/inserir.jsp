@@ -37,7 +37,6 @@
                         <label>Inserir nome completo: </label><p><input type="text" name="nomecliente" /></p>
                         <label>Inserir email: </label><p><input type="email" name="email" /></p>
                         <label>Inserir Telefone:</label><p><input type="text" name="telefone" placeholder="(xx)xxxxxxxxx" maxlength="13" OnKeyPress="formatar('(##)#########', this)"required="required" /> *</p>
-                        <label>Inserir CPF:</label><p><input type="text" name="cpf" placeholder="000.000.000-00" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)" required="required" />*</p>
                         <input type="hidden" name="command" value="InfoCliente" />   
                         <input type="hidden" name="action" value="insere.confirma" />
                         <p><input type="submit" value="Inserir" /></p>

@@ -24,7 +24,6 @@
                         <td>NOME COMPLETO</td> 
                         <td>EMAIL</td> 
                         <td>TELEFONE</td> 
-                        <td>CPF</td> 
 
                     </tr>
                 </thead>
@@ -35,7 +34,7 @@
                             <td>${infoCliente.nomecliente}</td>
                             <td>${infoCliente.email}</td>
                             <td>${infoCliente.telefone}</td>
-                            <td>${infoCliente.cpf}</td>
+                            
                         </tr>
                     </c:forEach>
                 </tbody>

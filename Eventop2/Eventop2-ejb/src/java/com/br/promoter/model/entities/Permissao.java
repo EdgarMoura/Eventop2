@@ -42,7 +42,7 @@ public class Permissao implements Serializable {
     @Size(max = 20)
     @Column(name = "TITLO")
     private String titlo;
-    @OneToMany(mappedBy = "idpermissao")
+    @OneToMany(mappedBy = "fkPermissao")
     private List<UsuarioCliente> usuarioClienteList;
 
     public Permissao() {

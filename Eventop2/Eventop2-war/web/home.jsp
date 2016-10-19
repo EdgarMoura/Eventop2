@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Social Music</title>
+        <title>Eventop</title>
         <meta charset="utf-8">
         <link href="css/cssMenu.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">

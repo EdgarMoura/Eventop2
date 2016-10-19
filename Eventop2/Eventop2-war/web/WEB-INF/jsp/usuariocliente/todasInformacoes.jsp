@@ -27,8 +27,7 @@
                         <td>PERMISSAO DO USUARIO</td>
                         <td>NOME COMPLETO</td> 
                         <td>EMAIL</td> 
-                        <td>ANIVERSÁRIO</td>
-                        <td>CPF</td>
+                        <td>TELEFONE</td>                       
                     </tr>
                 </thead>
                 <tbody>
@@ -37,11 +36,10 @@
                             <td>${usuarioCliente.idusuariocliente}</td>
                             <td>${usuarioCliente.username}</td>
                             <td>${usuarioCliente.senha}</td>
-                            <td>${usuarioCliente.idpermissao}</td>
+                            <td>${usuarioCliente.fkPermissao}</td>
                             <td>${usuarioCliente.infoCliente.nomecliente}</td>
                             <td>${usuarioCliente.infoCliente.email}</td>
-                            <td>${usuarioCliente.infoCliente.dtaniversario}</td>
-                            <td>${usuarioCliente.infoCliente.cpf}</td>
+                            <td>${usuarioCliente.infoCliente.telefone}</td>
                         </tr>
                     </c:forEach>
                 </tbody>

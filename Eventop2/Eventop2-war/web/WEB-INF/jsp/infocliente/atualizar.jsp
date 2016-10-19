@@ -38,7 +38,7 @@
                         <td>NOME COMPLETO</td> 
                         <td>EMAIL</td> 
                         <td>TELEFONE</td> 
-                        <td>CPF</td> 
+                        
 
                     </tr>
                 </thead>
@@ -49,8 +49,7 @@
                             <td>${infoCliente.nomecliente}</td>
                             <td>${infoCliente.email}</td>
                             <td>${infoCliente.telefone}</td>
-                            <td>${infoCliente.cpf}</td>
-                        </tr>
+                    </tr>
                     </c:forEach>
                 </tbody>
             </table>
@@ -70,8 +69,7 @@
                     </select></p>
                 <label>Novo nome completo:</label> <p><input type="text" name="nomecliente" required="required"/></p>
                 <label>Alterar email:</label> <p><input type="email" name="email" required="required" /></p>
-                <label>Alterar telefone:</label><p><input type="text" name="telefone" placeholder="(xx)xxxxxxxxx" maxlength="13" OnKeyPress="formatar('(##)#########', this)"required="required" /> *</p>
-                <label>Alterar CPF:</label><p><input type="text" name="cpf" placeholder="000.000.000-00" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)" required="required" />*</p>
+                <label>Alterar telefone:</label><p><input type="text" name="telefone" placeholder="(xx)xxxxxxxxx" maxlength="13" required="required" /></p>
                 <input type="hidden" name="command" value="InfoCliente" />
                 <input type="hidden" name="action" value="atualiza.confirma" />
                 <p><input type="submit" value="Alterar" /></p>

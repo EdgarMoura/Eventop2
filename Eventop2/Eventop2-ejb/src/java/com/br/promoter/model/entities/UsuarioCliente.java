@@ -50,13 +50,11 @@ public class UsuarioCliente implements Serializable {
     @Size(max = 32)
     @Column(name = "SENHA")
     private String senha;
-    @JoinColumn(name = "IDPERMISSAO", referencedColumnName = "IDPERMISSAO")
+    @OneToMany(mappedBy = "fkUsuario")
+    private List<Anuncio> anuncioList;
+    @JoinColumn(name = "FK_PERMISSAO", referencedColumnName = "IDPERMISSAO")
     @ManyToOne
-    private Permissao idpermissao;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuariocliente")
-    private List<Orcamento> orcamentoList;
-    @OneToMany(mappedBy = "idusuariocliente")
-    private List<Endereco> enderecoList;
+    private Permissao fkPermissao;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "usuarioCliente")
     private InfoCliente infoCliente;
 
@@ -91,30 +89,21 @@ public class UsuarioCliente implements Serializable {
         this.senha = senha;
     }
 
-    public Permissao getIdpermissao() {
-        return idpermissao;
-    }
-
-    public void setIdpermissao(Permissao idpermissao) {
-        this.idpermissao = idpermissao;
-    }
-
     @XmlTransient
-    public List<Orcamento> getOrcamentoList() {
-        return orcamentoList;
+    public List<Anuncio> getAnuncioList() {
+        return anuncioList;
     }
 
-    public void setOrcamentoList(List<Orcamento> orcamentoList) {
-        this.orcamentoList = orcamentoList;
+    public void setAnuncioList(List<Anuncio> anuncioList) {
+        this.anuncioList = anuncioList;
     }
 
-    @XmlTransient
-    public List<Endereco> getEnderecoList() {
-        return enderecoList;
+    public Permissao getFkPermissao() {
+        return fkPermissao;
     }
 
-    public void setEnderecoList(List<Endereco> enderecoList) {
-        this.enderecoList = enderecoList;
+    public void setFkPermissao(Permissao fkPermissao) {
+        this.fkPermissao = fkPermissao;
     }
 
     public InfoCliente getInfoCliente() {

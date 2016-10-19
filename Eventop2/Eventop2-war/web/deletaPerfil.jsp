@@ -24,8 +24,8 @@
                         <input type="hidden" name="id" value="${username.idusuariocliente}"/> 
                         <label>Nome de Usuário: </label><p><input type="text" name="username"/></p>
                         <label>Senha: </label><p><input type="password" name="pwd1" /></p>
-                        <input type="hidden" name="command" value="User" />
-                        <input type="hidden" name="action" value="delete.profile" />
+                        <input type="hidden" name="command" value="Usuario" />
+                        <input type="hidden" name="action" value="delete.perfil" />
                         <p><input id="botaoRemover" type="submit" value="Remover sua conta" /></p>
                     </form>
                 </fieldset>     

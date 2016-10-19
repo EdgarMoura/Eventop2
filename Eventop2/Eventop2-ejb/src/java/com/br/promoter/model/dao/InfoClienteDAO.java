@@ -62,18 +62,11 @@ public class InfoClienteDAO implements GenericDAO<InfoCliente> {
         return infoemail;   
    }
     
-    public InfoCliente findByCpf(String cpf){
-      InfoCliente infocpf = null;
-        List<InfoCliente> lista = em.createNamedQuery("InfoCliente.findByCpf", InfoCliente.class).setParameter("cpf", cpf).getResultList();
-        if(lista!=null && !lista.isEmpty()) 
-           infocpf  = lista.get(0);
-        
-        return infocpf ;   
-   }
+  
     
-      public InfoCliente findByName(String nomeCliente){
+      public InfoCliente findByName(String nomecliente){
       InfoCliente user = null;
-        List<InfoCliente> lista = em.createNamedQuery("InfoCliente.findByNomecliente", InfoCliente.class).setParameter("nomecliente",nomeCliente).getResultList();
+        List<InfoCliente> lista = em.createNamedQuery("InfoCliente.findByNomecliente", InfoCliente.class).setParameter("nomecliente", nomecliente).getResultList();
         if(lista!=null && !lista.isEmpty()) 
             user = lista.get(0);
         

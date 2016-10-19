@@ -36,14 +36,14 @@
                     <form action="FrontController"  method="POST" id="cadastro" >
                         <legend>Alterar os dados da sua conta</legend>
                         <input type="hidden" name="user" value="${username.username}"/>
-                        <input type="hidden" name="fullnameh" value="${username.infoCliente.nomecliente}"/>
+                        <input type="hidden" name="iduser" value="${username.infoCliente.idinfocliente}"/>
                         <label>Nome completo: </label><p><input type="text" name="fullname" value="${username.infoCliente.nomecliente}"/></p>
                         <label>Nome de Usuário: </label><p><input type="text" name="username"value="${username.username}"/></p>
                         <label>Senha: </label><p><input type="password" name="pwd1" value="${username.senha}" /></p>
                         <label>Confirmar senha: </label><p><input type="password" name="pwd2" value="${username.senha}"/></p>
                         <label>Email: </label><p><input type="email" name="email" value="${username.infoCliente.email}" /></p>
-                        <label>Telefone:</label><p><input type="text" name="telefone" placeholder="(xx)xxxxxxxxx" maxlength="13" OnKeyPress="formatar('(##)#########', this)"required="required" /> *</p>
-                        <input type="hidden" name="command" value="Cliente" />
+                        <label>Telefone:</label><p><input type="text" name="telefone" placeholder="telefone" value="${username.infoCliente.telefone}" /></p>
+                        <input type="hidden" name="command" value="Usuario" />
                         <input type="hidden" name="action" value="atualiza.perfil" />
                         <p><input type="submit" value="Alterar" /></p>
                     </form>
