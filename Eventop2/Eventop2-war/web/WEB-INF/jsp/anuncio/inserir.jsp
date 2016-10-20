@@ -36,10 +36,10 @@
                         <legend>Inserir Anuncio</legend>
                         <label>Inserir anuncio: </label>
                         <p><select name="tpAnuncio">
-                                <option value="">-- Selecione o nome completo --</option>
-                                <option value="Buffet de Casamento">Buffet de Casamento</option>
+                                <option value="">-- Selecione o tipo do anúncio --</option>
                                 <option value="Buffet de Casamento">Buffet de Casamento</option>
                                 <option value="Debutante">Debutante</option>
+                                <option value="Festas infantis">Festas infantis</option>
                                 <option value="Outros">Outros</option>
                             </select></p>
                         <label>Descreve seus Serviços</label>

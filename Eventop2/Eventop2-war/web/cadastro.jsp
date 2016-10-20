@@ -9,7 +9,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+         <link href="css/cssForm.css" rel="stylesheet" type="text/css"/>
         <style>
             #fundo {background-image: url("img/aladim.gif");color: white;}
         </style>
@@ -72,6 +72,10 @@ window.onload = function(){
         </nav>
 
         <div class="container">
+        ${errormsg}
+        ${errormsg=null}
+        ${sucessmsg}
+        ${sucessmsg=null}
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#home">Cadastro Cliente</a></li>
                 <li><a data-toggle="tab" href="#promoter">Cadastro Promoter</a></li>
@@ -82,27 +86,27 @@ window.onload = function(){
                     <form action="FrontController" method="POST" >
                         <div class="form-group">
                             <label for="nome">Nome</label>
-                            <input type="text" class="form-control" id="nome" name="nomecliente" >
+                            <input type="text" class="form-control" id="nome" name="nomecliente" required="required">
                         </div>
                         <div class="form-group">
                             <label for="nome">Nome de Usuário</label>
-                            <input type="text" class="form-control" id="nome" name="username" >
+                            <input type="text" class="form-control" id="nome" name="username" required="required">
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="email@dominio.com">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="email@dominio.com" required="required">
                         </div>
                         <div class="form-group">
                             <label for="senha">Senha</label>
-                            <input onKeyUp="validarSenha('txtPass', 'txtConf-senha', 'resultadoCadastro');" id="txtPass"  type="password" class="form-control" id="senha" name="senha1" placeholder="*********" >
+                            <input onKeyUp="validarSenha('txtPass', 'txtConf-senha', 'resultadoCadastro');" id="txtPass"  type="password" class="form-control" id="senha" name="senha1" placeholder="*********" required="required">
                         </div>
                         <div class="form-group">
                             <label for="conf-senha">Confirmar Senha</label>
-                            <input onKeyUp="validarSenha('txtPass', 'txtConf-senha', 'resultadoCadastro');" type="password" class="form-control" id="txtConf-senha" name="senha2" placeholder="*********">
+                            <input onKeyUp="validarSenha('txtPass', 'txtConf-senha', 'resultadoCadastro');" type="password" class="form-control" id="txtConf-senha" name="senha2" placeholder="*********"required="required">
                         </div>
                         <div class="form-group">
                             <label for="telefone">Telefone</label>
-                            <input type="text" class="form-control" id="telefone" name="telefone" maxlength="15">
+                            <input type="text" class="form-control" id="telefone" name="telefone" maxlength="15" required="required">
                         </div>
                         <p type="text"  id="resultadoCadastro" style="font-weight:bold;"></p>
                         <input type="hidden" class="form-control" id="tipo" name="txtTipo" value="c">
@@ -116,48 +120,37 @@ window.onload = function(){
                     <form action="FrontController" method="POST" >
                         <div class="form-group">
                             <label for="nome">Nome</label>
-                            <input type="text" class="form-control" id="nome" name="nomePromoter" >
+                            <input type="text" class="form-control" id="nome" name="nomePromoter" required="required" >
                         </div>
                         <div class="form-group">
                             <label for="nome">Nome de Usuário</label>
-                            <input type="text" class="form-control" id="nome" name="username" >
+                            <input type="text" class="form-control" id="nome" name="username" required="required">
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="email@dominio.com">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="email@dominio.com" required="required">
                         </div>
                         <div class="form-group">
                             <label for="senha">Senha</label>
-                            <input onKeyUp="validarSenha('txtPass', 'txtConf-senha', 'resultadoCadastro');" id="txtPass"  type="password" class="form-control" id="senha" name="senha1" placeholder="*********" >
+                            <input onKeyUp="validarSenha('txtPass', 'txtConf-senha', 'resultadoCadastro');" id="txtPass"  type="password" class="form-control" id="senha" name="senha1" placeholder="*********" required="required">
                         </div>
                         <div class="form-group">
                             <label for="conf-senha">Confirmar Senha</label>
-                            <input onKeyUp="validarSenha('txtPass', 'txtConf-senha', 'resultadoCadastro');" type="password" class="form-control" id="txtConf-senha" name="senha2" placeholder="*********">
+                            <input onKeyUp="validarSenha('txtPass', 'txtConf-senha', 'resultadoCadastro');" type="password" class="form-control" id="txtConf-senha" name="senha2" placeholder="*********" required="required">
                         </div>
                         <div class="form-group">
                             <label for="telefone">Telefone</label>
-                            <input type="text" class="form-control" id="telefone" name="telefone" maxlength="15">
+                            <input type="text" class="form-control" id="telefone" name="telefone" maxlength="15" required="required">
                         </div>
-                        
+                      
                         <p type="text"  id="resultadoCadastro" style="font-weight:bold;"></p>
                         <input type="hidden" class="form-control" id="tipo" name="txtTipo" value="p">
                         <input type="hidden" name="command" value="Usuario" />
                         <input type="hidden" name="action" value="registrar2" />
                         <input type="submit" class="btn btn-default" name="btnSubmit" value="Cadastrar">
-
                     </form>
                 </div>
             </div>
-
         </div>
-
-
-
-        ${errormsg}
-        ${errormsg=null}
-        ${sucessmsg}
-        ${sucessmsg=null}
-
     </body>
-
 </html>

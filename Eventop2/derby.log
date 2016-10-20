@@ -12,3 +12,5 @@ os.arch=amd64
 os.version=6.3
 derby.system.home=C:\Users\moura\Documents\NetBeansProjects\Eventop2\Eventop2
 Carregador de classe do banco de dados iniciado - derby.database.classpath=''
+----------------------------------------------------------------
+Thu Oct 20 01:49:22 BRST 2016: Shutting down Derby engine

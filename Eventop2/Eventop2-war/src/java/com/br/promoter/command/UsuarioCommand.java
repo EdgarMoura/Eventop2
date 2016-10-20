@@ -120,7 +120,7 @@ public class UsuarioCommand implements Command {
 
                 } else if (infoemail1 != null) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Email já cadastrado!</p>");
-
+                    returnPage = "cadastro.jsp";
                 } else if (senha3.equals(senha4)) {
 
                     Permissao permissao = new Permissao();
@@ -196,6 +196,7 @@ public class UsuarioCommand implements Command {
 
             case "logout":
                 request.getSession().setAttribute("username", null);
+                request.getSession().setAttribute("infoClientes", infoClienteDAO.find()); 
                 returnPage = "index.jsp";
                 break;
 
@@ -281,8 +282,10 @@ public class UsuarioCommand implements Command {
             case "visualiza":
 
                 request.getSession().setAttribute("usuarioClientes", usuarioClienteDAO.find());
+                
                 break;
             case "home":
+                
                 returnPage = "home.jsp";
                 break;
             case "orcamento":    
@@ -295,8 +298,7 @@ public class UsuarioCommand implements Command {
                 returnPage = "cadastro.jsp";
             break;
             case "index":
-                request.getSession().setAttribute("infoClientes", infoClienteDAO.find());
-                //request.getSession().setAttribute("infoClientes", anuncioDAO.find());
+                request.setAttribute("infoClientes", infoClienteDAO.find()); 
                 returnPage = "index.jsp";
                 
             break;    

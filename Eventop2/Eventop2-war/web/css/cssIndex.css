@@ -1,0 +1,19 @@
+body {
+  background: #eee;
+}
+main {
+  padding: 10px;
+}
+main:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+section {
+  box-sizing: border-box;
+  float: left;
+  width: 33.333%;
+  padding: 20px;
+  background: #fff;
+  border: 10px solid #eee;
+}
