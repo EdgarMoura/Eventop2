@@ -67,7 +67,7 @@ public class UsuarioCommand implements Command {
 
                 } else if (infoemail != null) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Email já cadastrado!</p>");
-
+                    returnPage = "cadastro.jsp";
                 } else if (senha1.equals(senha2)) {
 
                     Permissao permissao = new Permissao();
@@ -114,7 +114,7 @@ public class UsuarioCommand implements Command {
                 UsuarioCliente user1 = usuarioClienteDAO.findByName(username1);
                 InfoCliente infoemail1 = infoClienteDAO.findByEmail(email1);
 
-                if (user1 != null) {
+                 if (user1 != null) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Usuário já existente!</p>");
                     returnPage = "cadastro.jsp";
 
@@ -130,19 +130,15 @@ public class UsuarioCommand implements Command {
                     infocliente.setNomecliente(nomePromoter);
                     infocliente.setEmail(email1);
                     infocliente.setTelefone(telefone1);
-                    
-                    
+
                     UsuarioCliente uc = new UsuarioCliente();
                     uc.setUsername(username1);
                     uc.setSenha(senha3);
                     uc.setFkPermissao(permissao);
-                    
-                 
+
                     uc.setInfoCliente(infocliente);
                     infocliente.setUsuarioCliente(uc);
-                    
-                    
-                    
+
                     try {
 
                         usuarioClienteDAO.persist(uc);
@@ -155,8 +151,8 @@ public class UsuarioCommand implements Command {
                 } else {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Senhas não conferem!</p>");
                     returnPage = "cadastro.jsp";
+                
                 }
-
                 break;    
                 
             case "login":
@@ -298,7 +294,7 @@ public class UsuarioCommand implements Command {
                 returnPage = "cadastro.jsp";
             break;
             case "index":
-                request.setAttribute("infoClientes", infoClienteDAO.find()); 
+                request.getSession().setAttribute("infoClientes", infoClienteDAO.find()); 
                 returnPage = "index.jsp";
                 
             break;    

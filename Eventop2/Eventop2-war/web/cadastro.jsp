@@ -13,33 +13,19 @@
         <style>
             #fundo {background-image: url("img/aladim.gif");color: white;}
         </style>
+        <script>
+  function mascara(t, mask){
+ var i = t.value.length;
+ var saida = mask.substring(1,0);
+ var texto = mask.substring(i);
+ if (texto.substring(0,1) != saida){
+ t.value += texto.substring(0,1);
+ }
+ }
+        </script>
         <title>Login EvenTOP</title>
     </head>
-    <script type="text/javascript">
-/* Máscaras ER */
-function mascara(o,f){
-    v_obj=o
-    v_fun=f
-    setTimeout("execmascara()",1)
-}
-function execmascara(){
-    v_obj.value=v_fun(v_obj.value)
-}
-function mtel(v){
-    v=v.replace(/D/g,"");             //Remove tudo o que não é dígito
-    v=v.replace(/^(d{2})(d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
-    v=v.replace(/(d)(d{4})$/,"$1-$2");    //Coloca hífen entre o quarto e o quinto dígitos
-    return v;
-}
-function id( el ){
-	return document.getElementById( el );
-}
-window.onload = function(){
-	id('telefone').onkeypress = function(){
-		mascara( this, mtel );
-	}
-}
-</script>
+    
     <body>
         <div class="jumbotron text-center" id="fundo">
             <h1>Seja Bem Vindo, ao EvenTop</h1>
@@ -106,7 +92,8 @@ window.onload = function(){
                         </div>
                         <div class="form-group">
                             <label for="telefone">Telefone</label>
-                            <input type="text" class="form-control" id="telefone" name="telefone" maxlength="15" required="required">
+                            <input type="text" name="telefone" id="telefone" maxlength="13" placeholder="00 00000-0000" onkeypress="mascara(this, '## #####-####')"  class="form-control" required="required"/>
+                        
                         </div>
                         <p type="text"  id="resultadoCadastro" style="font-weight:bold;"></p>
                         <input type="hidden" class="form-control" id="tipo" name="txtTipo" value="c">
@@ -140,7 +127,7 @@ window.onload = function(){
                         </div>
                         <div class="form-group">
                             <label for="telefone">Telefone</label>
-                            <input type="text" class="form-control" id="telefone" name="telefone" maxlength="15" required="required">
+                            <input type="text" class="form-control" id="telefone" placeholder="00 00000-0000" onkeypress="mascara(this, '## #####-####')" name="telefone" maxlength="13" required="required">
                         </div>
                       
                         <p type="text"  id="resultadoCadastro" style="font-weight:bold;"></p>

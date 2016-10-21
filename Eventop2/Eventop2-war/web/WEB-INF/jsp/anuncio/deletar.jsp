@@ -14,7 +14,7 @@
     <body>
         <%@include file= "../menu.jspf"%>
         <c:choose>
-            <c:when test="${username.fkPermissao.titlo='Promoter'}">
+            <c:when test="${username.fkPermissao.titlo=='Promoter'}">
                 <div class="container">
                     <article>  
                         <fieldset class="cadastro"> 
@@ -22,7 +22,7 @@
                                 <legend>Remover Anúncios</legend>
                                 <label>Remover seus anúncios: </label> 
                                 <p><select name="anuncios">
-                                        <option value="">-- Selecione o anúncio a ser excluído --</option>     
+                                        <option value="">-- Selecione o anuncio a ser removido --</option>
                                         <c:forEach items="${anuncios}" var="anuncio">
                                             <c:if test="${anuncio.fkUsuario.idusuariocliente == username.idusuariocliente}">
                                                 <option value="${anuncio.idAnuncio}">${anuncio.idAnuncio} - ${anuncio.tipoAnuncio}</option>
@@ -59,5 +59,5 @@
                 </div>
             </c:otherwise>
         </c:choose>
-    </body>
+    </body>            
 </html>

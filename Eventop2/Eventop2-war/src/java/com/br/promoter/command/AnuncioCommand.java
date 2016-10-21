@@ -118,8 +118,8 @@ public class AnuncioCommand implements Command {
                 break;
             case "deleta":
 
+              
                 request.getSession().setAttribute("anuncios", anuncioDAO.find());
-
                 returnPage = "WEB-INF/jsp/anuncio/deletar.jsp";
                 break;
             case "deleta.confirma":
