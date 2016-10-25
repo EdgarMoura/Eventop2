@@ -11,7 +11,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
-    
+
     <body>
         <c:if test="${infoClientes == null}">
             <c:redirect url="FrontController?command=Usuario&action=index"></c:redirect>
@@ -46,25 +46,26 @@
             </div>
         </nav>
 
-  
-            <main>
-                <c:forEach items="${infoClientes}" var="infoCliente">
+
+        <main>
+            <c:forEach items="${infoClientes}" var="infoCliente">
+                <c:if test="${infoCliente.getUsuarioCliente().getAnuncioList().isEmpty() == false}">
                     <section>
-                        <c:if test="${infoCliente.getUsuarioCliente().getAnuncioList().isEmpty() == false}">
-                            <label>Dados do Promoter</label>
-                            <p>Nome: ${infoCliente.nomecliente}</p>
-                            <p>Email: ${infoCliente.email}</p>
-                            <p>Telefone: ${infoCliente.telefone}<p>
-                                <label>Anúncios do promoter </label>
-                                <c:forEach begin="0" end="${infoCliente.getUsuarioCliente().getAnuncioList().size() - 1}" varStatus="i" var="items">  
-                                <p>ID Anúncio: ${infoCliente.getUsuarioCliente().getAnuncioList().get(i.index).getIdAnuncio()} </p>
-                                <p>Tipo do Anúncio: ${infoCliente.getUsuarioCliente().getAnuncioList().get(i.index).getTipoAnuncio()} </p>
-                                <p>Descrição: ${infoCliente.getUsuarioCliente().getAnuncioList().get(i.index).getDescricao()} </p>
-                            </c:forEach>
-                        </c:if>
+                        <label>Dados do Promoter</label>
+                        <p>Nome: ${infoCliente.nomecliente}</p>
+                        <p>Email: ${infoCliente.email}</p>
+                        <p>Telefone: ${infoCliente.telefone}<p>
+                            <label>Anúncios do promoter </label>
+                            <c:forEach begin="0" end="${infoCliente.getUsuarioCliente().getAnuncioList().size() - 1}" varStatus="i" var="items">  
+                            <p>ID Anúncio: ${infoCliente.getUsuarioCliente().getAnuncioList().get(i.index).getIdAnuncio()} </p>
+                            <p>Tipo do Anúncio: ${infoCliente.getUsuarioCliente().getAnuncioList().get(i.index).getTipoAnuncio()} </p>
+                            <p>Descrição: ${infoCliente.getUsuarioCliente().getAnuncioList().get(i.index).getDescricao()} </p>
+                        </c:forEach>
                     </section>
-                </c:forEach>
-            </main>  
+                </c:if>
+
+            </c:forEach>
+        </main>  
     </body>
 </html>
 
