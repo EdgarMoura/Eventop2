@@ -108,7 +108,7 @@ public class AnuncioCommand implements Command {
 
                     try {
                         anuncioDAO.persist(anuncio1);
-                        request.getSession().setAttribute("anuncios", anuncioDAO.find());
+                        request.setAttribute("anuncios", anuncioDAO.find());
 
                     } catch (DBException ex) {
                         request.getSession().setAttribute("errormsg", "<p class='msg'>Erro na conexão com o banco. Tente novamente!</p>");

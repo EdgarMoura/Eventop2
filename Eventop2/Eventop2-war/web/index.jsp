@@ -46,7 +46,6 @@
             </div>
         </nav>
 
-
         <main>
             <c:forEach items="${infoClientes}" var="infoCliente">
                 <c:if test="${infoCliente.getUsuarioCliente().getAnuncioList().isEmpty() == false}">
@@ -56,16 +55,15 @@
                         <p>Email: ${infoCliente.email}</p>
                         <p>Telefone: ${infoCliente.telefone}<p>
                             <label>Anúncios do promoter </label>
-                            <c:forEach begin="0" end="${infoCliente.getUsuarioCliente().getAnuncioList().size() - 1}" varStatus="i" var="items">  
+                        <c:forEach begin="0" end="${infoCliente.getUsuarioCliente().getAnuncioList().size() - 1}" varStatus="i" var="items">  
                             <p>ID Anúncio: ${infoCliente.getUsuarioCliente().getAnuncioList().get(i.index).getIdAnuncio()} </p>
                             <p>Tipo do Anúncio: ${infoCliente.getUsuarioCliente().getAnuncioList().get(i.index).getTipoAnuncio()} </p>
                             <p>Descrição: ${infoCliente.getUsuarioCliente().getAnuncioList().get(i.index).getDescricao()} </p>
                         </c:forEach>
                     </section>
                 </c:if>
-
-            </c:forEach>
-        </main>  
+            </c:forEach>    
+        </main> 
     </body>
 </html>
 

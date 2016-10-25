@@ -62,6 +62,16 @@ public class UsuarioClienteDAO implements GenericDAO<UsuarioCliente> {
 
         return user;
     }
+    
+    public UsuarioCliente findByPassword(String password) {
+        UsuarioCliente user = null;
+        List<UsuarioCliente> lista = em.createNamedQuery("UsuarioCliente.findBySenha", UsuarioCliente.class).setParameter("password", password).getResultList();
+        if (lista != null && !lista.isEmpty()) {
+            user = lista.get(0);
+        }
+
+        return user;
+    }
 
     @Override
     public void remove(Integer id) {

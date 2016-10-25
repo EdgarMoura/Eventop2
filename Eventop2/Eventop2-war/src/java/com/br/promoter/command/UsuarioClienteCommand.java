@@ -11,6 +11,7 @@ import com.br.promoter.model.dao.PermissaoDAO;
 import com.br.promoter.model.dao.UsuarioClienteDAO;
 import com.br.promoter.model.entities.Permissao;
 import com.br.promoter.model.entities.UsuarioCliente;
+import com.br.promoter.util.CriptografiaMd5;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.Context;
@@ -49,6 +50,8 @@ public class UsuarioClienteCommand implements Command {
         String senha;
         Integer fkPermissao;
         Permissao permissao;
+        
+        CriptografiaMd5 criptMd5 = new CriptografiaMd5();
 
         switch (action) {
             case "atualiza":
@@ -78,7 +81,7 @@ public class UsuarioClienteCommand implements Command {
                     
                     usuariocliente = usuarioClienteDAO.findById(idusuariocliente);
                     usuariocliente.setUsername(username);
-                    usuariocliente.setSenha(senha);
+                    usuariocliente.setSenha(criptMd5.md5(senha));
                     usuariocliente.setFkPermissao(permissao);
                     
                    
@@ -103,7 +106,8 @@ public class UsuarioClienteCommand implements Command {
                 username = request.getParameter("username");
                 senha = request.getParameter("senha");
                 fkPermissao = Integer.parseInt(request.getParameter("permissoes"));
-
+                
+                
                 UsuarioCliente usuarioCliente = usuarioClienteDAO.findByName(username);
 
                 if (usuarioCliente != null) {
@@ -114,9 +118,10 @@ public class UsuarioClienteCommand implements Command {
                     permissao = new Permissao(); 
                     permissao.setIdpermissao(fkPermissao);
                     
+                    
                     usuariocliente = new UsuarioCliente();
                     usuariocliente.setUsername(username);
-                    usuariocliente.setSenha(senha);
+                    usuariocliente.setSenha(criptMd5.md5(senha));
                     usuariocliente.setFkPermissao(permissao);
 
                     try {

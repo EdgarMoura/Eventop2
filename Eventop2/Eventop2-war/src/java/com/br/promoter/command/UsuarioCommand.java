@@ -13,6 +13,7 @@ import com.br.promoter.model.dao.UsuarioClienteDAO;
 import com.br.promoter.model.entities.InfoCliente;
 import com.br.promoter.model.entities.Permissao;
 import com.br.promoter.model.entities.UsuarioCliente;
+import com.br.promoter.util.CriptografiaMd5;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.Context;
@@ -48,6 +49,7 @@ public class UsuarioCommand implements Command {
 
         String action = request.getParameter("action");
         UsuarioCliente users;
+        CriptografiaMd5 criptMd5 = new CriptografiaMd5();
         switch (action) {
             case "registrar":
                 String nomeCliente = request.getParameter("nomecliente");
@@ -80,7 +82,7 @@ public class UsuarioCommand implements Command {
 
                     UsuarioCliente uc = new UsuarioCliente();
                     uc.setUsername(username);
-                    uc.setSenha(senha1);
+                    uc.setSenha(criptMd5.md5(senha1));
                     uc.setFkPermissao(permissao);
 
                     uc.setInfoCliente(infocliente);
@@ -89,8 +91,9 @@ public class UsuarioCommand implements Command {
                     try {
 
                         usuarioClienteDAO.persist(uc);
-                        returnPage = "cadastro.jsp";
-                        request.getSession().setAttribute("sucessmsg", "<p class='msgsuccess'>Usuário cadastrado com sucesso! Faça o seu login!</p>");
+                        returnPage = "home.jsp";
+                        UsuarioCliente userCadastro = usuarioClienteDAO.findByName(username);
+                        request.getSession().setAttribute("username", userCadastro);
                     } catch (DBException ex) {
                         request.getSession().setAttribute("errormsg", "<p class='msg'>Erro na conexão com o banco. Tente novamente!</p>");
                         returnPage = "cadastro.jsp";
@@ -133,7 +136,7 @@ public class UsuarioCommand implements Command {
 
                     UsuarioCliente uc = new UsuarioCliente();
                     uc.setUsername(username1);
-                    uc.setSenha(senha3);
+                    uc.setSenha(criptMd5.md5(senha3));
                     uc.setFkPermissao(permissao);
 
                     uc.setInfoCliente(infocliente);
@@ -142,8 +145,9 @@ public class UsuarioCommand implements Command {
                     try {
 
                         usuarioClienteDAO.persist(uc);
-                        returnPage = "cadastro.jsp";
-                        request.getSession().setAttribute("sucessmsg", "<p class='msgsuccess'>Usuário cadastrado com sucesso! Faça o seu login!</p>");
+                        returnPage = "home.jsp";
+                        UsuarioCliente userCadastro = usuarioClienteDAO.findByName(username1);
+                        request.getSession().setAttribute("username", userCadastro);
                     } catch (DBException ex) {
                         request.getSession().setAttribute("errormsg", "<p class='msg'>Erro na conexão com o banco. Tente novamente!</p>");
                         returnPage = "cadastro.jsp";
@@ -159,12 +163,18 @@ public class UsuarioCommand implements Command {
                 String username2 = request.getParameter("username");
                 String senha = request.getParameter("senha");
 
+                String senhaMd5  =  criptMd5.md5(senha);
                 UsuarioCliente user2;
-
+                UsuarioCliente userPass;
+               
+                    System.out.println("Senha:"+senhaMd5);
+               
                 try {
+                    
                     user2 = usuarioClienteDAO.findByName(username2);
-
-                    if (user2.getUsername().equals(username2) && user2.getSenha().equals(senha)) {
+                    
+                     
+                    if (user2.getUsername().equals(username2) && user2.getSenha().equals(senhaMd5)){
 
                         String check = request.getParameter("lembrar");
                         if ("on".equals(check)) {
@@ -191,7 +201,6 @@ public class UsuarioCommand implements Command {
                 break;
 
             case "logout":
-                request.getSession().setAttribute("username", null);
                 request.getSession().setAttribute("infoClientes", infoClienteDAO.find()); 
                 returnPage = "index.jsp";
                 break;
@@ -229,7 +238,7 @@ public class UsuarioCommand implements Command {
                     UsuarioCliente uc;
                     uc = usuarioClienteDAO.findByName(userteste);
                     uc.setUsername(username3);
-                    uc.setSenha(password1);
+                    uc.setSenha(criptMd5.md5(password1));
                     uc.setFkPermissao(permissao);
                     uc.setInfoCliente(infocliente);
                     infocliente.setUsuarioCliente(uc);
@@ -255,15 +264,17 @@ public class UsuarioCommand implements Command {
                 Integer idusuariocliente = Integer.parseInt(request.getParameter("id"));
                 String userRemove = request.getParameter("username");
                 String pwdRemove = request.getParameter("pwd1");
-
+                String pwdMd5  =  criptMd5.md5(pwdRemove);
+                
                 UsuarioCliente usuarioCliente2;
-
+                UsuarioCliente usuarioId;
+                
                 try {
-                    usuarioCliente2 = usuarioClienteDAO.findByName(userRemove);
-                    usuarioCliente2 = usuarioClienteDAO.findById(idusuariocliente);
-
-                    if (usuarioCliente2.getUsername().equals(userRemove) && usuarioCliente2.getSenha().equals(pwdRemove) && usuarioCliente2.getIdusuariocliente().equals(idusuariocliente)) {
-                        usuarioClienteDAO.removeByName(usuarioCliente2);
+                   
+                     usuarioCliente2 = usuarioClienteDAO.findByName(userRemove);
+                     usuarioId= usuarioClienteDAO.findById(idusuariocliente);
+                    if (usuarioCliente2.getUsername().equals(userRemove) && usuarioCliente2.getSenha().equals(pwdMd5) && usuarioId.getIdusuariocliente().equals(idusuariocliente)) {
+                        usuarioClienteDAO.remove(idusuariocliente);
                         returnPage = "index.jsp";
                     } else {
                         request.getSession().setAttribute("errormsg", "<p class='msg'> Usuário ou Senha incorretos!</p>");
@@ -294,7 +305,7 @@ public class UsuarioCommand implements Command {
                 returnPage = "cadastro.jsp";
             break;
             case "index":
-                request.getSession().setAttribute("infoClientes", infoClienteDAO.find()); 
+                request.setAttribute("infoClientes", infoClienteDAO.find()); 
                 returnPage = "index.jsp";
                 
             break;    

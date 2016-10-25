@@ -134,9 +134,8 @@ public class UsuarioCliente implements Serializable {
         return true;
     }
 
-    @Override
+  @Override
     public String toString() {
-        return "com.br.promoter.model.entities.UsuarioCliente[ idusuariocliente=" + idusuariocliente + " ]";
-    }
-    
+        return idusuariocliente+" - " + username;
+    }   
 }

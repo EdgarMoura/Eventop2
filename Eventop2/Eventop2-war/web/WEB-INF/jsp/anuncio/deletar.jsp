@@ -39,6 +39,25 @@
             </c:when>
             <c:otherwise>
                 <div class="container">
+                    <h3>Seus Anuncios</h3>          
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <td>ID_ANUNCIO</td>
+                                <td>TIPO DO ANUNCIO</td> 
+                                <td>DESCRIÇÃO</td> 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${anuncios}" var="anuncio">
+                                    <tr>
+                                        <td>${anuncio.idAnuncio}</td>
+                                        <td>${anuncio.tipoAnuncio}</td>
+                                        <td>${anuncio.descricao}</td>
+                                    </tr>                                
+                            </c:forEach>
+                        </tbody>
+                    </table>
                     <article>  
                         <fieldset class="cadastro"> 
                             <form action="FrontController" method="POST" id="cadastro">
@@ -47,7 +66,7 @@
                                 <p><select name="anuncios">
                                         <option value="">-- Selecione o anuncio a ser excluído --</option>     
                                         <c:forEach items="${anuncios}" var="anuncio">
-                                            <option value="${anuncio.idAnuncio}">${anuncio.idAnuncio} - ${anuncio.tipoAnuncio}</option>
+                                            <option value="${anuncio.idAnuncio}">${anuncio.idAnuncio} - ${anuncio.tipoAnuncio} </option>
                                         </c:forEach> 
                                     </select></p>
                                 <input type="hidden" name="command" value="Anuncio" />

@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "ANUNCIO")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Anuncio.findAll", query = "SELECT a FROM Anuncio a"),   
+    @NamedQuery(name = "Anuncio.findAll", query = "SELECT a FROM Anuncio a"),
     @NamedQuery(name = "Anuncio.findByIdAnuncio", query = "SELECT a FROM Anuncio a WHERE a.idAnuncio = :idAnuncio"),
     @NamedQuery(name = "Anuncio.findByTipoAnuncio", query = "SELECT a FROM Anuncio a WHERE a.tipoAnuncio = :tipoAnuncio"),
     @NamedQuery(name = "Anuncio.findByDescricao", query = "SELECT a FROM Anuncio a WHERE a.descricao = :descricao")})
@@ -110,7 +110,11 @@ public class Anuncio implements Serializable {
 
     @Override
     public String toString() {
-        return "com.br.promoter.model.entities.Anuncio[ idAnuncio=" + idAnuncio + " ]";
+        return "Anuncio{" + "fkUsuario - " + fkUsuario + '}';
     }
+
+    
+
+    
     
 }
