@@ -101,9 +101,9 @@ public class UsuarioCommand implements Command {
                 } else {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Senhas não conferem!</p>");
                     returnPage = "cadastro.jsp";
+                
                 }
-
-                break;
+              break;
                 
              case "registrar2":
                 String nomePromoter = request.getParameter("nomePromoter");
@@ -200,7 +200,7 @@ public class UsuarioCommand implements Command {
                 break;
 
             case "logout":
-                request.getSession().setAttribute("infoClientes", infoClienteDAO.find()); 
+                request.setAttribute("infoClientes", infoClienteDAO.find());
                 returnPage = "index.jsp";
                 break;
 
