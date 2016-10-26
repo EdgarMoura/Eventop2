@@ -62,19 +62,21 @@ public class UsuarioClienteCommand implements Command {
                 returnPage = "WEB-INF/jsp/usuariocliente/atualizar.jsp";
                 break;
             case "atualiza.confirma":
-
+                
+                
                 idusuariocliente = Integer.parseInt(request.getParameter("usuarioClientes"));
                 username = request.getParameter("username");
                 senha = request.getParameter("senha");
                 fkPermissao = Integer.parseInt(request.getParameter("permissoes"));
-
+                 
                 UsuarioCliente usuariocliente;
+                UsuarioCliente uc;
                  usuariocliente = usuarioClienteDAO.findByName(username);
 
                 if (usuariocliente != null) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Usuário já existente!</p>");
                     returnPage = "WEB-INF/jsp/usuariocliente/atualizar.jsp";
-
+ 
                 } else {
                     permissao = new Permissao(); 
                     permissao.setIdpermissao(fkPermissao);

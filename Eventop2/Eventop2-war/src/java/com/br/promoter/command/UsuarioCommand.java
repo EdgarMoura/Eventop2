@@ -165,8 +165,7 @@ public class UsuarioCommand implements Command {
 
                 String senhaMd5  =  criptMd5.md5(senha);
                 UsuarioCliente user2;
-                UsuarioCliente userPass;
-               
+
                     System.out.println("Senha:"+senhaMd5);
                
                 try {
@@ -182,7 +181,7 @@ public class UsuarioCommand implements Command {
                             cookie.setMaxAge(60 * 60 * 24);
                             response.addCookie(cookie);
 
-                            Cookie cookie2 = new Cookie("senha", senha);
+                            Cookie cookie2 = new Cookie("senha", senhaMd5);
                             cookie2.setMaxAge(60 * 60 * 24);
                             response.addCookie(cookie2);
                         }
@@ -246,7 +245,8 @@ public class UsuarioCommand implements Command {
                     try {
 
                         usuarioClienteDAO.update(uc);
-                        returnPage = "atualizaPerfil.jsp";
+                        request.getSession().setAttribute("sucessmsg", "<p class='msgregister'>Dados alterado com sucesso!</p>");
+                        returnPage = "perfil.jsp";
                         request.getSession().setAttribute("sucessmsg", "<p class='msgregister'>Dados alterado com sucesso!</p>");
                     } catch (DBException ex) {
                         request.getSession().setAttribute("errormsg", "<p class='msg'>Erro na conexão com o banco. Tente novamente!</p>");

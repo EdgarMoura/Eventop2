@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script>
+        <script>
             function formatar(mascara, documento) {
                 var i = documento.value.length;
                 var saida = mascara.substring(0, 1);
@@ -23,14 +23,24 @@
 
             }
         </script>
+        <script>
+            function mascara(t, mask) {
+                var i = t.value.length;
+                var saida = mask.substring(1, 0);
+                var texto = mask.substring(i);
+                if (texto.substring(0, 1) != saida) {
+                    t.value += texto.substring(0, 1);
+                }
+            }
+        </script>
     </head>
     <body>
         <%@include file="WEB-INF/jsp/menu.jspf" %>
         <div class="container">
-           ${errormsg}
-           ${errormsg=null}
-           ${sucessmsg}
-           ${sucessmsg=null}
+            ${errormsg}
+            ${errormsg=null}
+            ${sucessmsg}
+            ${sucessmsg=null}
             <article>  
                 <fieldset class="cadastro">
                     <form action="FrontController"  method="POST" id="cadastro" >
@@ -42,7 +52,7 @@
                         <label>Senha: </label><p><input type="password" name="pwd1" value="${username.senha}" /></p>
                         <label>Confirmar senha: </label><p><input type="password" name="pwd2" value="${username.senha}"/></p>
                         <label>Email: </label><p><input type="email" name="email" value="${username.infoCliente.email}" /></p>
-                        <label>Telefone:</label><p><input type="text" name="telefone" placeholder="telefone" value="${username.infoCliente.telefone}" /></p>
+                        <label>Telefone:</label><p><input type="text" name="telefone" placeholder="00 00000-0000" onkeypress="mascara(this, '## #####-####')" maxlength="13" value="${username.infoCliente.telefone}" /></p>
                         <input type="hidden" name="command" value="Usuario" />
                         <input type="hidden" name="action" value="atualiza.perfil" />
                         <p><input type="submit" value="Alterar" /></p>

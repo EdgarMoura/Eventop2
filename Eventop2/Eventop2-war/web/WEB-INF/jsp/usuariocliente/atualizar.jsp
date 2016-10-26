@@ -45,8 +45,8 @@
                     <form action="FrontController" method="POST" id="cadastro">
                         <legend>Alterar usuários da Eventop:</legend>
                         <label>Usuários da Eventop:</label> 
-                        <p><select name="usuarioClientes">
-                                <option value="">-- Selecione um username --</option>
+                        <p><select  name="usuarioClientes">
+                                <option value="" required="required">-- Selecione um username --</option>
                                 <c:forEach items="${usuarioClientes}" var="usuarioCliente">
                                     <option value="${usuarioCliente.idusuariocliente}">${usuarioCliente.username}</option>
                                 </c:forEach>
@@ -54,7 +54,7 @@
                         <label>Novo username:</label>  <p><input type="text" name="username" required="required"/></p>
                         <label>Nova senha:</label>  <p><input type="password" name="senha"  required="required"/></p>
                         <label>Tipo de Usuário</label>
-                        <p><select name="permissoes">
+                        <p><select name="permissoes" >
                                 <option value="">-- Selecione um tipo de usuario --</option>
                                 <c:forEach items="${permissoes}" var="permissao">
                                     <option value="${permissao.idpermissao}">${permissao.titlo}</option>
