@@ -65,7 +65,7 @@
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#home">Cadastro Cliente</a></li>
                 <li><a data-toggle="tab" href="#promoter">Cadastro Promoter</a></li>
-                <li><a data-toggle="tab" href="#promoter">Cadastro Fornecedor</a></li>
+                <li><a data-toggle="tab" href="#fornecedor">Cadastro Fornecedor</a></li>
             </ul>
 
             <div class="tab-content">
@@ -135,8 +135,8 @@
                             <input type="text" class="form-control" id="telefone" placeholder="00 00000-0000" onkeypress="mascara(this, '## #####-####')" name="telefone" maxlength="13" required="required">
                         </div>
                        <div class="form-group">
-                            <label for="cnpj">CNPJ</label>
-                            <input type="text" class="form-control" id="cnpj" placeholder="00.000.000/0000-00" onkeypress="mascara(this, '##.###.###/####-##')" name="cnpj" maxlength="18" required="required">
+                            <label for="cpf">CPF</label>
+                            <input type="text" class="form-control" id="cpf" placeholder="000.000.000-00" onkeypress="mascara(this, '###.###.###-##')" name="cpf" maxlength="14" required="required">
                         </div>
                         <p type="text"  id="resultadoCadastro" style="font-weight:bold;"></p>
                         <input type="hidden" class="form-control" id="tipo" name="txtTipo" value="p">
@@ -145,7 +145,7 @@
                         <input type="submit" class="btn btn-default" name="btnSubmit" value="Cadastrar">
                     </form>
                 </div>
-                <div id="Fornecedor" class="tab-pane fade">
+                <div id="Fornecedor" class="tab-pane fade ">
                     <form action="FrontController" method="POST" >
                         <div class="form-group">
                             <label for="nome">Nome</label>
@@ -171,6 +171,7 @@
                             <label for="telefone">Telefone</label>
                             <input type="text" class="form-control" id="telefone" placeholder="00 00000-0000" onkeypress="mascara(this, '## #####-####')" name="telefone" maxlength="13" required="required">
                         </div>
+                        
                         <div class="form-group">
                             <label for="cnpj">CNPJ</label>
                             <input type="text" class="form-control" id="cnpj" placeholder="xx xxxxxx/xxxx xx" onkeypress="mascara(this, '## ###.###/#### ##')" name="cnpj" maxlength="13" required="required">
