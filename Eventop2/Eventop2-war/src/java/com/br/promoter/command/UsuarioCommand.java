@@ -58,6 +58,7 @@ public class UsuarioCommand implements Command {
                 String senha2 = request.getParameter("senha2");
                 String telefone = request.getParameter("telefone");
                 String email = request.getParameter("email");
+                String cpf = request.getParameter("cpf");
                 Integer fkPermissao = 2;
 
                 UsuarioCliente user = usuarioClienteDAO.findByName(username);
@@ -79,6 +80,7 @@ public class UsuarioCommand implements Command {
                     infocliente.setNomecliente(nomeCliente);
                     infocliente.setEmail(email);
                     infocliente.setTelefone(telefone);
+                    infocliente.setCpf(cpf);
 
                     UsuarioCliente uc = new UsuarioCliente();
                     uc.setUsername(username);
@@ -112,6 +114,7 @@ public class UsuarioCommand implements Command {
                 String senha4 = request.getParameter("senha2");
                 String email1 = request.getParameter("email");
                 String telefone1 = request.getParameter("telefone");
+                String cpf1 = request.getParameter("cpf");
                 Integer fkPermissao1 = 3;
 
                 UsuarioCliente user1 = usuarioClienteDAO.findByName(username1);
@@ -133,6 +136,7 @@ public class UsuarioCommand implements Command {
                     infocliente.setNomecliente(nomePromoter);
                     infocliente.setEmail(email1);
                     infocliente.setTelefone(telefone1);
+                    infocliente.setCpf(cpf1);
 
                     UsuarioCliente uc = new UsuarioCliente();
                     uc.setUsername(username1);
