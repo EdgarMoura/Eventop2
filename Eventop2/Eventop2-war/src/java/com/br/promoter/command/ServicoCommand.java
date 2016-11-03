@@ -130,16 +130,10 @@ public class ServicoCommand  implements Command{
                 request.getSession().setAttribute("servicos", servicoDAO.find());
                 break;
             case "visualiza":
-                
-                request.getSession().setAttribute("servicos", servicoDAO.find());
-                break;
-                
-            case "mostrar":
-                
                 request.getSession().setAttribute("infoClientes", infoClienteDAO.find());
                 request.getSession().setAttribute("servicos", servicoDAO.find());
-                returnPage = "servico.jsp";
                 break;
+                
             default:
                 break;
         }

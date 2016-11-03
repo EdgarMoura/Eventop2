@@ -63,9 +63,9 @@
         ${sucessmsg}
         ${sucessmsg=null}
             <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#home">Cadastro Cliente</a></li>
+                <li class="active"><a data-toggle="tab" href="#cliente">Cadastro Cliente</a></li>
                 <li><a data-toggle="tab" href="#promoter">Cadastro Promoter</a></li>
-                <li><a data-toggle="tab" href="#promoter">Cadastro Fornecedor</a></li>
+                <li><a data-toggle="tab" href="#fornecedor">Cadastro Fornecedor</a></li>
             </ul>
 
             <div class="tab-content">

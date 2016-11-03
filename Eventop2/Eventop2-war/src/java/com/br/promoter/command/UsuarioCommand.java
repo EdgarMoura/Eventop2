@@ -217,7 +217,7 @@ public class UsuarioCommand implements Command {
                 String fullname = request.getParameter("fullname");
                 String telefone2 = request.getParameter("telefone");
                 String email2 = request.getParameter("email");
-                Integer fkPermissao2 = 3;
+                Integer fkPermissao2 = Integer.parseInt(request.getParameter("idPermissao"));
 
                 UsuarioCliente usuariocliente = usuarioClienteDAO.findByName(username3);
 
