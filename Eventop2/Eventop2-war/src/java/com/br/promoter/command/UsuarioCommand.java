@@ -28,12 +28,12 @@ import javax.servlet.http.HttpServletResponse;
  * @author moura
  */
 public class UsuarioCommand implements Command {
+
     AnuncioDAO anuncioDAO = lookupAnuncioDAOBean();
     UsuarioClienteDAO usuarioClienteDAO = lookupUsuarioClienteDAOBean();
     PermissaoDAO permissaoDAO = lookupPermissaoDAOBean();
     InfoClienteDAO infoClienteDAO = lookupInfoClienteDAOBean();
-    
-  
+
     private String returnPage = "index.jsp";
     private HttpServletRequest request;
     private HttpServletResponse response;
@@ -101,14 +101,14 @@ public class UsuarioCommand implements Command {
                 } else {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Senhas não conferem!</p>");
                     returnPage = "cadastro.jsp";
-                
+
                 }
-              break;
-                
-             case "registrar2":
+                break;
+
+            case "registrar2":
                 String nomePromoter = request.getParameter("nomePromoter");
                 String username1 = request.getParameter("username");
-                String senha3= request.getParameter("senha1");
+                String senha3 = request.getParameter("senha1");
                 String senha4 = request.getParameter("senha2");
                 String email1 = request.getParameter("email");
                 String telefone1 = request.getParameter("telefone");
@@ -117,7 +117,7 @@ public class UsuarioCommand implements Command {
                 UsuarioCliente user1 = usuarioClienteDAO.findByName(username1);
                 InfoCliente infoemail1 = infoClienteDAO.findByEmail(email1);
 
-                 if (user1 != null) {
+                if (user1 != null) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Usuário já existente!</p>");
                     returnPage = "cadastro.jsp";
 
@@ -155,25 +155,24 @@ public class UsuarioCommand implements Command {
                 } else {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Senhas não conferem!</p>");
                     returnPage = "cadastro.jsp";
-                
+
                 }
-                break;    
-                
+                break;
+
             case "login":
                 String username2 = request.getParameter("username");
                 String senha = request.getParameter("senha");
 
-                String senhaMd5  =  criptMd5.md5(senha);
+                String senhaMd5 = criptMd5.md5(senha);
                 UsuarioCliente user2;
 
-                    System.out.println("Senha:"+senhaMd5);
-               
+                //System.out.println("Senha:" + senha);
+
                 try {
-                    
+
                     user2 = usuarioClienteDAO.findByName(username2);
-                    
-                     
-                    if (user2.getUsername().equals(username2) && user2.getSenha().equals(senhaMd5)){
+
+                    if (user2.getUsername().equals(username2) && user2.getSenha().equals(senhaMd5)) {
 
                         String check = request.getParameter("lembrar");
                         if ("on".equals(check)) {
@@ -200,7 +199,8 @@ public class UsuarioCommand implements Command {
                 break;
 
             case "logout":
-                request.setAttribute("infoClientes", infoClienteDAO.find());
+                request.getSession().invalidate();
+                request.getSession().setAttribute("infoClientes", infoClienteDAO.find());
                 returnPage = "index.jsp";
                 break;
 
@@ -214,7 +214,7 @@ public class UsuarioCommand implements Command {
                 String telefone2 = request.getParameter("telefone");
                 String email2 = request.getParameter("email");
                 Integer fkPermissao2 = 3;
-                
+
                 UsuarioCliente usuariocliente = usuarioClienteDAO.findByName(username3);
 
                 if (usuariocliente != null) {
@@ -231,8 +231,6 @@ public class UsuarioCommand implements Command {
                     infocliente.setNomecliente(fullname);
                     infocliente.setEmail(email2);
                     infocliente.setTelefone(telefone2);
-                    
-                    
 
                     UsuarioCliente uc;
                     uc = usuarioClienteDAO.findByName(userteste);
@@ -246,8 +244,7 @@ public class UsuarioCommand implements Command {
 
                         usuarioClienteDAO.update(uc);
                         request.getSession().setAttribute("sucessmsg", "<p class='msgregister'>Dados alterado com sucesso!</p>");
-                        returnPage = "perfil.jsp";
-                        request.getSession().setAttribute("sucessmsg", "<p class='msgregister'>Dados alterado com sucesso!</p>");
+                        returnPage = "alteraPerfil.jsp";
                     } catch (DBException ex) {
                         request.getSession().setAttribute("errormsg", "<p class='msg'>Erro na conexão com o banco. Tente novamente!</p>");
                         returnPage = "atualizaPerfil.jsp";
@@ -264,15 +261,15 @@ public class UsuarioCommand implements Command {
                 Integer idusuariocliente = Integer.parseInt(request.getParameter("id"));
                 String userRemove = request.getParameter("username");
                 String pwdRemove = request.getParameter("pwd1");
-                String pwdMd5  =  criptMd5.md5(pwdRemove);
-                
+                String pwdMd5 = criptMd5.md5(pwdRemove);
+
                 UsuarioCliente usuarioCliente2;
                 UsuarioCliente usuarioId;
-                
+
                 try {
-                   
-                     usuarioCliente2 = usuarioClienteDAO.findByName(userRemove);
-                     usuarioId= usuarioClienteDAO.findById(idusuariocliente);
+
+                    usuarioCliente2 = usuarioClienteDAO.findByName(userRemove);
+                    usuarioId = usuarioClienteDAO.findById(idusuariocliente);
                     if (usuarioCliente2.getUsername().equals(userRemove) && usuarioCliente2.getSenha().equals(pwdMd5) && usuarioId.getIdusuariocliente().equals(idusuariocliente)) {
                         usuarioClienteDAO.remove(idusuariocliente);
                         returnPage = "index.jsp";
@@ -289,26 +286,26 @@ public class UsuarioCommand implements Command {
             case "visualiza":
 
                 request.getSession().setAttribute("usuarioClientes", usuarioClienteDAO.find());
-                
+
                 break;
             case "home":
-                
+
                 returnPage = "home.jsp";
                 break;
-            case "orcamento":    
+            case "orcamento":
                 returnPage = "orcamento.jsp";
-            break;  
+                break;
             case "entrar":
                 returnPage = "login.jsp";
-            break;
+                break;
             case "cadastrar":
                 returnPage = "cadastro.jsp";
-            break;
+                break;
             case "index":
-                request.setAttribute("infoClientes", infoClienteDAO.find()); 
+                request.getSession().setAttribute("infoClientes", infoClienteDAO.find());
                 returnPage = "index.jsp";
-                
-            break;    
+
+                break;
             case "message":
                 returnPage = "message.jsp";
                 break;
@@ -363,6 +360,5 @@ public class UsuarioCommand implements Command {
             throw new RuntimeException(ne);
         }
     }
-
 
 }

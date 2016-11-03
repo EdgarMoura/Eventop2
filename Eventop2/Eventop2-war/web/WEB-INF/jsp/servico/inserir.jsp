@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Inserir informações de clientes</title>
+        <title>Inserir Serviços</title>
         <link rel="icon" href="img/favicon.ico" />
         <link href="css/cssForm.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -22,16 +22,6 @@
 
             }
         </script>
-        <script>
-            function mascara(t, mask) {
-                var i = t.value.length;
-                var saida = mask.substring(1, 0);
-                var texto = mask.substring(i);
-                if (texto.substring(0, 1) != saida) {
-                    t.value += texto.substring(0, 1);
-                }
-            }
-        </script>
     </head>
 
     <body>
@@ -43,11 +33,23 @@
             <article>  
                 <fieldset class="cadastro"> 
                     <form action="FrontController" method="POST" id="cadastro">
-                        <legend>Inserir informações de clientes</legend>
-                        <label>Inserir nome completo: </label><p><input type="text" name="nomecliente" /></p>
-                        <label>Inserir email: </label><p><input type="email" name="email" /></p>
-                        <label>Telefone: </label><p><input type="text" name="telefone" placeholder="00 00000-0000" maxlength="13"  onkeypress="mascara(this, '## #####-####')"/></p>
-                        <input type="hidden" name="command" value="InfoCliente" />   
+                        <legend>Inserir Serviço</legend>
+                        <label>Inserir serviço: </label>
+                        <p><select name="tpServico">
+                                <option value="" required="required">-- Selecione o tipo do serviço --</option>
+                                <option value="Bebidas">Bebidas</option>
+                                <option value="Brinquedos infantis">Brinquedos infantis</option>
+                                <option value="Comidas">Comidas</option>
+                                <option value="Decoração">Decoração</option>
+                                <option value="Fotografia">Fotografia</option>
+                                <option value="Entretenimento">Entretenimento</option>
+                                <option value="Sonorização">Sonorização</option>
+                                <option value="Outros">Outros</option>
+                            </select></p>
+                        <label>Descreve seus Serviços</label>
+                        <p><textarea class="form-control" rows="5" name="descricao" placeholder="Digite seu texto"></textarea></p>
+                        <input type="hidden" name="fkuser" value="${username.idusuariocliente}" />   
+                        <input type="hidden" name="command" value="Servico"/>   
                         <input type="hidden" name="action" value="insere.confirma" />
                         <p><input type="submit" value="Inserir" /></p>
                     </form>

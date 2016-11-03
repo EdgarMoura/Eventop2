@@ -13,9 +13,6 @@
     </head>
 
     <body>
-        <c:if test="${infoClientes == null}">
-            <c:redirect url="FrontController?command=Usuario&action=index"></c:redirect>
-        </c:if>
         <div class="jumbotron text-center">
             <h1>Seja Bem Vindo, ao EvenTop</h1>
             <p> Os melhores eventos estão aqui!!!</p> 
@@ -62,7 +59,8 @@
                         </c:forEach>
                     </section>
                 </c:if>
-            </c:forEach>    
+            </c:forEach>
+            ${infoClientes = null}
         </main> 
     </body>
 </html>

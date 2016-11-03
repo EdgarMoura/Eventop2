@@ -50,6 +50,8 @@ public class UsuarioCliente implements Serializable {
     @Size(max = 32)
     @Column(name = "SENHA")
     private String senha;
+    @OneToMany(mappedBy = "fkUsuarioFornecedor")
+    private List<Servico> servicoList;
     @OneToMany(mappedBy = "fkUsuario")
     private List<Anuncio> anuncioList;
     @JoinColumn(name = "FK_PERMISSAO", referencedColumnName = "IDPERMISSAO")
@@ -87,6 +89,15 @@ public class UsuarioCliente implements Serializable {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    @XmlTransient
+    public List<Servico> getServicoList() {
+        return servicoList;
+    }
+
+    public void setServicoList(List<Servico> servicoList) {
+        this.servicoList = servicoList;
     }
 
     @XmlTransient
@@ -134,8 +145,9 @@ public class UsuarioCliente implements Serializable {
         return true;
     }
 
-  @Override
+    @Override
     public String toString() {
-        return idusuariocliente+" - " + username;
-    }   
+        return "com.br.promoter.model.entities.UsuarioCliente[ idusuariocliente=" + idusuariocliente + " ]";
+    }
+    
 }

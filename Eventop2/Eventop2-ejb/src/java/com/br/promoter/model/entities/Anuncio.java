@@ -110,11 +110,7 @@ public class Anuncio implements Serializable {
 
     @Override
     public String toString() {
-        return "Anuncio{" + "fkUsuario - " + fkUsuario + '}';
+        return "com.br.promoter.model.entities.Anuncio[ idAnuncio=" + idAnuncio + " ]";
     }
-
-    
-
-    
     
 }
