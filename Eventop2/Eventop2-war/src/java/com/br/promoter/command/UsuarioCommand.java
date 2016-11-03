@@ -162,6 +162,62 @@ public class UsuarioCommand implements Command {
 
                 }
                 break;
+                
+            case "registrar3":
+                String nomeFornecedor = request.getParameter("nomeFornecedor");
+                String usernameF = request.getParameter("username");
+                String senhaF = request.getParameter("senha1");
+                String senhaF1 = request.getParameter("senha2");
+                String emailF = request.getParameter("email");
+                String telefoneF = request.getParameter("telefone");
+                String cnpj = request.getParameter("cnpj");
+                Integer fkPermissaoF = 4;
+
+                UsuarioCliente userF = usuarioClienteDAO.findByName(usernameF);
+                InfoCliente infoemailF = infoClienteDAO.findByEmail(emailF);
+
+                if (userF != null) {
+                    request.getSession().setAttribute("errormsg", "<p class='msg'>Usuário já existente!</p>");
+                    returnPage = "cadastro.jsp";
+
+                } else if (infoemailF != null) {
+                    request.getSession().setAttribute("errormsg", "<p class='msg'>Email já cadastrado!</p>");
+                    returnPage = "cadastro.jsp";
+                } else if (senhaF.equals(senhaF1)) {
+
+                    Permissao permissao = new Permissao();
+                    permissao.setIdpermissao(fkPermissaoF);
+
+                    InfoCliente infocliente = new InfoCliente();
+                    infocliente.setNomecliente(nomeFornecedor);
+                    infocliente.setEmail(emailF);
+                    infocliente.setTelefone(telefoneF);
+                    infocliente.setCpf(cnpj);
+
+                    UsuarioCliente uc = new UsuarioCliente();
+                    uc.setUsername(usernameF);
+                    uc.setSenha(criptMd5.md5(senhaF));
+                    uc.setFkPermissao(permissao);
+
+                    uc.setInfoCliente(infocliente);
+                    infocliente.setUsuarioCliente(uc);
+
+                    try {
+
+                        usuarioClienteDAO.persist(uc);
+                        returnPage = "home.jsp";
+                        UsuarioCliente userCadastro = usuarioClienteDAO.findByName(usernameF);
+                        request.getSession().setAttribute("username", userCadastro);
+                    } catch (DBException ex) {
+                        request.getSession().setAttribute("errormsg", "<p class='msg'>Erro na conexão com o banco. Tente novamente!</p>");
+                        returnPage = "cadastro.jsp";
+                    }
+                } else {
+                    request.getSession().setAttribute("errormsg", "<p class='msg'>Senhas não conferem!</p>");
+                    returnPage = "cadastro.jsp";
+
+                }
+                break;    
 
             case "login":
                 String username2 = request.getParameter("username");
