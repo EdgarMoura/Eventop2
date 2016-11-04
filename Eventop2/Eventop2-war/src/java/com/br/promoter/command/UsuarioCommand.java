@@ -192,7 +192,7 @@ public class UsuarioCommand implements Command {
                     infocliente.setNomecliente(nomeFornecedor);
                     infocliente.setEmail(emailF);
                     infocliente.setTelefone(telefoneF);
-                    infocliente.setCpf(cnpj);
+                    infocliente.setCnpj(cnpj);
 
                     UsuarioCliente uc = new UsuarioCliente();
                     uc.setUsername(usernameF);

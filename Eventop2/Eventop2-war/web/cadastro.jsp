@@ -69,7 +69,7 @@
             </ul>
 
             <div class="tab-content">
-                <div id="home" class="tab-pane fade in active">
+                <div id="cliente" class="tab-pane fade in active">
                     <form action="FrontController" method="POST" >
                         <div class="form-group">
                             <label for="nome">Nome</label>
@@ -145,11 +145,11 @@
                         <input type="submit" class="btn btn-default" name="btnSubmit" value="Cadastrar">
                     </form>
                 </div>
-                <div id="Fornecedor" class="tab-pane fade ">
+                <div id="fornecedor" class="tab-pane fade ">
                     <form action="FrontController" method="POST" >
                         <div class="form-group">
                             <label for="nome">Nome</label>
-                            <input type="text" class="form-control" id="nome" name="nomePromoter" required="required" >
+                            <input type="text" class="form-control" id="nome" name="nomeFornecedor" required="required" >
                         </div>
                         <div class="form-group">
                             <label for="nome">Nome de Usuário</label>
@@ -171,10 +171,10 @@
                             <label for="telefone">Telefone</label>
                             <input type="text" class="form-control" id="telefone" placeholder="00 00000-0000" onkeypress="mascara(this, '## #####-####')" name="telefone" maxlength="13" required="required">
                         </div>
-                        
+  
                         <div class="form-group">
                             <label for="cnpj">CNPJ</label>
-                            <input type="text" class="form-control" id="cnpj" placeholder="xx xxxxxx/xxxx xx" onkeypress="mascara(this, '## ###.###/#### ##')" name="cnpj" maxlength="13" required="required">
+                            <input type="text" class="form-control" id="cnpj" placeholder="00.000.000/0000-00" onkeypress="mascara(this, '##.###.###/#### ##')" name="cnpj" maxlength="18" required="required">
                         </div>
                       
                         <p type="text"  id="resultadoCadastro" style="font-weight:bold;"></p>
