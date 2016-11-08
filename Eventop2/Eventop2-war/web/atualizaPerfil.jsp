@@ -45,8 +45,7 @@
                 <fieldset class="cadastro">
                     <form action="FrontController"  method="POST" id="cadastro" >
                         <legend>Alterar os dados da sua conta</legend>
-                        <input type="hidden" name="user" value="${username.username}"/>
-                        <input type="hidden" name="iduser" value="${username.infoCliente.idinfocliente}"/>
+                        <input type="hidden" name="iduser" value="${username.idusuariocliente}"/>
                         <input type="hidden" name="idPermissao" value="${username.fkPermissao.idpermissao}"/>
                         <label>Nome completo: </label><p><input type="text" name="fullname" value="${username.infoCliente.nomecliente}"/></p>
                         <label>Nome de Usuário: </label><p><input type="text" name="username"value="${username.username}"/></p>

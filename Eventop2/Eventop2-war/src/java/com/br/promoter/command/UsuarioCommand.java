@@ -115,6 +115,7 @@ public class UsuarioCommand implements Command {
                 String email1 = request.getParameter("email");
                 String telefone1 = request.getParameter("telefone");
                 String cpf1 = request.getParameter("cpf");
+                String cnpj = request.getParameter("cnpj");
                 Integer fkPermissao1 = 3;
 
                 UsuarioCliente user1 = usuarioClienteDAO.findByName(username1);
@@ -137,6 +138,7 @@ public class UsuarioCommand implements Command {
                     infocliente.setEmail(email1);
                     infocliente.setTelefone(telefone1);
                     infocliente.setCpf(cpf1);
+                    infocliente.setCnpj(cnpj);
 
                     UsuarioCliente uc = new UsuarioCliente();
                     uc.setUsername(username1);
@@ -170,7 +172,7 @@ public class UsuarioCommand implements Command {
                 String senhaF1 = request.getParameter("senha2");
                 String emailF = request.getParameter("email");
                 String telefoneF = request.getParameter("telefone");
-                String cnpj = request.getParameter("cnpj");
+                String cnpjF = request.getParameter("cnpj");
                 Integer fkPermissaoF = 4;
 
                 UsuarioCliente userF = usuarioClienteDAO.findByName(usernameF);
@@ -192,7 +194,7 @@ public class UsuarioCommand implements Command {
                     infocliente.setNomecliente(nomeFornecedor);
                     infocliente.setEmail(emailF);
                     infocliente.setTelefone(telefoneF);
-                    infocliente.setCnpj(cnpj);
+                    infocliente.setCnpj(cnpjF);
 
                     UsuarioCliente uc = new UsuarioCliente();
                     uc.setUsername(usernameF);
@@ -265,8 +267,8 @@ public class UsuarioCommand implements Command {
                 break;
 
             case "atualiza.perfil":
-                String userteste = request.getParameter("user");
-                Integer idinfoCliente = Integer.parseInt(request.getParameter("iduser"));
+               
+                Integer id = Integer.parseInt(request.getParameter("iduser"));
                 String username3 = request.getParameter("username");
                 String password1 = request.getParameter("pwd1");
                 String password2 = request.getParameter("pwd2");
@@ -275,6 +277,7 @@ public class UsuarioCommand implements Command {
                 String email2 = request.getParameter("email");
                 Integer fkPermissao2 = Integer.parseInt(request.getParameter("idPermissao"));
 
+                System.out.println("idPemissao: " +fkPermissao2);
                 UsuarioCliente usuariocliente = usuarioClienteDAO.findByName(username3);
 
                 if (usuariocliente != null) {
@@ -283,20 +286,22 @@ public class UsuarioCommand implements Command {
 
                 } else if (password1.equals(password2)) {
 
-                    Permissao permissao = new Permissao();
-                    permissao.setIdpermissao(fkPermissao2);
+                    Permissao idpermissao = new Permissao();
+                    idpermissao.setIdpermissao(fkPermissao2);
 
                     InfoCliente infocliente;
-                    infocliente = infoClienteDAO.findById(idinfoCliente);
+                    infocliente = infoClienteDAO.findById(id);
                     infocliente.setNomecliente(fullname);
                     infocliente.setEmail(email2);
                     infocliente.setTelefone(telefone2);
+                   
+                    
 
                     UsuarioCliente uc;
-                    uc = usuarioClienteDAO.findByName(userteste);
+                    uc = usuarioClienteDAO.findById(id);
                     uc.setUsername(username3);
                     uc.setSenha(criptMd5.md5(password1));
-                    uc.setFkPermissao(permissao);
+                    uc.setFkPermissao(idpermissao);
                     uc.setInfoCliente(infocliente);
                     infocliente.setUsuarioCliente(uc);
 
@@ -304,7 +309,7 @@ public class UsuarioCommand implements Command {
 
                         usuarioClienteDAO.update(uc);
                         request.getSession().setAttribute("sucessmsg", "<p class='msgregister'>Dados alterado com sucesso!</p>");
-                        returnPage = "alteraPerfil.jsp";
+                        returnPage = "alterarPerfil.jsp";
                     } catch (DBException ex) {
                         request.getSession().setAttribute("errormsg", "<p class='msg'>Erro na conexão com o banco. Tente novamente!</p>");
                         returnPage = "atualizaPerfil.jsp";
