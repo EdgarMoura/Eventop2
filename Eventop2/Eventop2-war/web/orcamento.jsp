@@ -2,72 +2,67 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html lang="en">
     <head>
-        <title>EvenTOP</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <title>Solicitar orçamento</title>
+        <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <c:choose>
             <c:when test="${username.fkPermissao.titlo=='Cliente'}">
                 <%@include file="WEB-INF/jsp/menu.jspf" %>
                 <div class="container">
-                    <form>
-                        <div class="form-group">
-                            <label for="data">Data do Evento</label>
-                            <input type="date" class="form-control" id="data" >
-                        </div>
-                        <div class="form-group">
-                            <label for="convidados">Quantidade de Convidados</label>
-                            <input type="number" class="form-control" id="convidados" >
-                        </div>
-                        <div class="form-group">
-                            <label for="periodo">Período</label>
-                            <select class="form-control" id="periodo">
-                                <option>Matutino</option>
-                                <option>Vespertino</option>
-                                <option>Noturno</option>
-                                <option>Diurno</option>
+                    ${errormsg}
+                    ${errormsg=null}
+                    ${sucessmsg}
+                    ${sucessmsg=null}
+                    <article>  
+                        <fieldset class="cadastro">
+                            <form action="FrontController" method="POST">
+                                <label for="nome">Nome</label>
+                                <input class="form-control" type="text" name="nome" placeholder="Nome completo" required>
 
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="local">Local</label>
-                            <select class="form-control" id="local">
-                                <option>Sítio</option>
-                                <option>Parque</option>
-                                <option>Condomínio</option>
-                                <option>Outros</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="area">Area</label>
-                            <select class="form-control" id="area">
-                                <option>Coberta</option>
-                                <option>Fechada</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="tema">Decoração por Tema</label>
-                            <select class="form-control" id="tema">
-                                <option>Homem Aranha</option>
-                                <option>Super Man</option>
-                                <option>Batman</option>
-                                <option>Toy Sorty</option>
-                                <option>Minions</option>
-                                <option>Frozen</option>
-                                <option>Branca de Neve</option>
-                                <option>Galinha Pintadinha</option>
-                                <option>Barbie</option>
-                                <option>Cinderela</option>
-                            </select>
+                                <label for="email">E-mail</label>
+                                <input class="form-control" type="email" name="email" placeholder="E-mail" required>
 
-                        </div>
-                    </form>
+                                <label for="telefone">Telefone</label>
+                                <input class="form-control" type="tel" name="telefone" placeholder="Telefone fixo ou Celular" required>
+
+                                <label for="tema">Tema</label>
+                                <select name="tema">
+
+                                    <option value="Infantil">Infantil</option>
+                                    <option value="Aniversario"Aniversário</option>
+                                    <option value="Casamento">Casamento</option>
+                                    <option value="Formatura">Formatura</option>
+
+                                </select>
+
+                                <label for="qtdPart">Participantes</label>
+                                <input class="form-control" type="number" name="participantes" placeholder="Quantidade de Participantes" required>
+
+                                <label for="data">Data</label>
+                                <input class="form-control" type="date" name="data" placeholder="Data" required>
+                                <label for="periodo">Período</label>
+                                <select name="periodo">
+
+                                    <option value="Vespertino">Vespertino</option>
+                                    <option value="matutino">Matutino</option>
+                                    <option value="Noturno">Noturno</option>
+
+                                </select>
+
+                                <label for="descricao">Descrição</label>
+                                <textarea class="form-control1" type="text" name="descricao" placeholder="Digite uma descriçaõ" rows="5" cols="55"></textarea>
+                                <input type="hidden" name="command" value="Evento"/>   
+                                <input type="hidden" name="action" value="soliOrcamento" />
+                                <input class="form-control2" type="submit" value="Enviar">
+                            </form>
+                        </fieldset>     
+                    </article>
                 </div>
             </c:when>
             <c:otherwise>
@@ -93,7 +88,7 @@
                         <div class="collapse navbar-collapse" id="myNavbar">
                             <ul class="nav navbar-nav">
                                 <li class="active"><a href="FrontController?command=Usuario&action=index">Home</a></li>
-                                <li><a href="FrontController?command=Usuario&action=orcamento">Orcamento</a></li>
+                                <li><a href="FrontController?command=Usuario&action=orcamento">Solicitar orçamento</a></li>
                                 <li><a href="#">Page 2</a></li> 
                                 <li><a href="#">Page 3</a></li> 
                             </ul>
@@ -105,64 +100,60 @@
                     </div>
                 </nav>
 
-                <div class="container">
+                
+                <div class='clear'/>    
+                <div class='post-body'>
+                    ${errormsg}
+                    ${errormsg=null}
+                    ${sucessmsg}
+                    ${sucessmsg=null}
+                    <h2 class='post-title'>Solicite seu orçamento</h2>        
+                    <form action="FrontController" method="POST">
 
-                    <form>
-                        <div class="form-group">
-                            <label for="data">Data do Evento</label>
-                            <input type="date" class="form-control" id="data" >
-                        </div>
-                        <div class="form-group">
-                            <label for="convidados">Quantidade de Convidados</label>
-                            <input type="number" class="form-control" id="convidados" >
-                        </div>
-                        <div class="form-group">
-                            <label for="periodo">Período</label>
-                            <select class="form-control" id="periodo">
-                                <option>Matutino</option>
-                                <option>Vespertino</option>
-                                <option>Noturno</option>
-                                <option>Diurno</option>
+                        <label for="nome">Nome</label>
+                        <input class="form-control" type="text" name="nome" placeholder="Nome completo" required>
 
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="local">Local</label>
-                            <select class="form-control" id="local">
-                                <option>Sítio</option>
-                                <option>Parque</option>
-                                <option>Condomínio</option>
-                                <option>Outros</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="area">Area</label>
-                            <select class="form-control" id="area">
-                                <option>Coberta</option>
-                                <option>Fechada</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="tema">Decoração por Tema</label>
-                            <select class="form-control" id="tema">
-                                <option>Homem Aranha</option>
-                                <option>Super Man</option>
-                                <option>Batman</option>
-                                <option>Toy Sorty</option>
-                                <option>Minions</option>
-                                <option>Frozen</option>
-                                <option>Branca de Neve</option>
-                                <option>Galinha Pintadinha</option>
-                                <option>Barbie</option>
-                                <option>Cinderela</option>
-                            </select>
+                        <label for="email">E-mail</label>
+                        <input class="form-control" type="email" name="email" placeholder="E-mail" required>
 
-                        </div>
+                        <label for="telefone">Telefone</label>
+                        <input class="form-control" type="tel" name="telefone" placeholder="Telefone fixo ou Celular" required>
+
+                        <label for="tema">Tema</label>
+                        <select class="form-control" name="tema">
+                            <option value="Infantil">Infantil</option>
+                            <option value="Aniversario">Aniversário</option>
+                            <option value="Casamento">Casamento</option>
+                            <option value="Formatura">Formatura</option>
+                        </select>
+
+                        <label for="qtdPart">Participantes</label>
+                        <input class="form-control" type="number" name="participantes" placeholder="Quantidade de Participantes" required>
+
+                        <label for="data">Data</label>
+                        <input class="form-control" type="date" name="data" placeholder="Data" required>
+
+                        <label for="periodo">Período</label>
+                        <select class="form-control" name="periodo">
+                            <option value="Vespertino">Vespertino</option>
+                            <option value="matutino">Matutino</option>
+                            <option value="Noturno">Noturno</option>
+                        </select>
+
+                        <label for="descricao">Descrição</label>
+                        <textarea class="form-control" type="text" name="descricao" placeholder="Digite uma descrição" rows="5" cols="55"></textarea>
+                        <input type="hidden" name="command" value="Evento"/>   
+                        <input type="hidden" name="action" value="soliOrcamento" />
+                        <input class="form-control" type="submit" value="Enviar">
                     </form>
                 </div>
 
-            </c:otherwise>
-        </c:choose>
-    </body>
+            </div>
+
+
+
+        </c:otherwise>
+    </c:choose>
+</body>
 </html>
 
