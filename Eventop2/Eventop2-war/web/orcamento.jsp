@@ -73,11 +73,7 @@
                 <input class="form-control" type="submit" value="Enviar">
             </form>
         </div>
-
     </div>
-
-
-
 
 </body>
 </html>
