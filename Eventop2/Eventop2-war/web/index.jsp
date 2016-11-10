@@ -1,48 +1,36 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
     <head>
         <title>Eventop</title>
         <meta charset="utf-8">
+        <link href="css/menuCss.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="css/cssIndex.css" rel="stylesheet" type="text/css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
-
+    
     <body>
+        <c:if test="${infoClientes==null}">
+            <c:redirect url="FrontController?command=Usuario&action=index"></c:redirect>
+            
+        </c:if>      
+        <div class="container center">
         <div class="jumbotron text-center">
             <h1>Seja Bem Vindo, ao EvenTop</h1>
-            <p> Os melhores eventos estão aqui!!!</p> 
-
+            <p> Os melhores eventos estão aqui!!!</p>   
         </div>
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span> 
-                    </button>
-                    <a class="navbar-brand" href="FrontController?command=Usuario&action=index">EvenTOP</a>
-                </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="FrontController?command=Usuario&action=index">Home</a></li>
-                        <li><a href="FrontController?command=Usuario&action=orcamento">Orçamento</a></li>
-                        <li><a href="#">Page 2</a></li> 
-                        <li><a href="#">Page 3</a></li> 
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="FrontController?command=Usuario&action=cadastrar"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        <li><a href="FrontController?command=Usuario&action=entrar"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
+       <ul id="adajaxmenu" class="admenus">
+                     <li><a href='/'><i class='fa fa-home fa-lg'></i></a></li>    
+                    <li><a class="" href="FrontController?command=Usuario&action=index">EvenTOP</a></li>
+                    <li class=""><a href="FrontController?command=Usuario&action=index">Home</a></li>
+                    <li id="left"><a class="left" href="FrontController?command=Usuario&action=cadastrar"><span class="glyphicon glyphicon-user" class="left"></span> Sign Up</a></li>
+                    <li id="left2"><a class="left" href="FrontController?command=Usuario&action=entrar"><span class="glyphicon glyphicon-log-in" class="left"></span> Login</a></li>
+        </ul>
+       
         <main>
             <c:forEach items="${infoClientes}" var="infoCliente">
                 <c:if test="${infoCliente.getUsuarioCliente().getAnuncioList().isEmpty() == false}">
@@ -60,8 +48,11 @@
                     </section>
                 </c:if>
             </c:forEach>
-            ${infoClientes = null}
+
         </main> 
+        </div>
+         
     </body>
+   
 </html>
 

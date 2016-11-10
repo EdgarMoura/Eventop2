@@ -66,6 +66,7 @@ public class EventoCommand implements Command {
                 String nome = request.getParameter("nome");
                 String email = request.getParameter("email");
                 String descricao = request.getParameter("descricao");
+                Integer idAfiliado = Integer.parseInt(request.getParameter("idAfiliado"));
                 
                 carct = new Caracteristica();
                 carct.setSolicitadoEm(data);
@@ -76,17 +77,20 @@ public class EventoCommand implements Command {
                 carct.setDescricao(descricao);
                 carct.setTema(tema);
                 carct.setPeriodo(periodo);
-                Integer id = 8;
-                Integer idAf = 1;
+                
+                
                 
                 
                 caracteristicaDAO.persist(carct);
                 uc = new UsuarioCliente();
-                //afiliadoDAO.findById(1);
+                uc = usuarioClienteDAO.findById(idAfiliado);
+                
+                
                 evento = new Evento();
-                evento.setStatus("Esperado analise");
-                evento.setFkCaract(caracteristicaDAO.findById(id));
-                evento.setFkUsuarioevento(usuarioClienteDAO.findById(idAf));
+                evento.setStatus("Esperando analise");
+                evento.setFkCaract(caracteristicaDAO.findById(carct.getIdCaract()));
+                evento.setFkUsuarioevento(uc);
+                
                 
                 eventoDAO.persist(evento);
                 break;

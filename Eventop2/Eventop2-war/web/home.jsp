@@ -5,7 +5,7 @@
     <head>
         <title>Eventop</title>
         <meta charset="utf-8">
-        <link href="css/cssMenu.css" rel="stylesheet" type="text/css"/>
+        <link href="css/menuCss.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -14,7 +14,7 @@
     </head>
     <body>   
         <%@include file="WEB-INF/jsp/menu.jspf" %>
-        <div class="container">
+        <div class="container center">
             <header>
                 <h1>Eventop</h1>
             </header>

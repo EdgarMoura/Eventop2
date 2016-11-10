@@ -1,45 +1,82 @@
-*{
-    font-family: Arial,Verdana;
-    
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+body {
+background-color:#f9f9f9;
+font-size:16px
+color:#444;
 }
-body{
-    margin: 0;
+.post-body h2{
+color:#f54325;
+font-family:'Oswald';
+font-weight:400;
+text-align:center;    
 }
+.post-body {
+max-width:680px;
+margin:20px auto;
+border:10px solid #f0f0f0;
+padding:15px 20px;
+background-color:#fff;
+color:#444;
+font-family:'Arial';
+font-size:13px;
+}
+
+
+
 .topMenu{
     background-color: #2F3233;
-    color: #FFF;
-    text-decoration: none;
+    
 }
-.topMenu ul{
-    padding-left: 0;
-    margin:0px;
+
+
+.menu{
+list-style:none; 
+border:1px solid #c0c0c0; 
+padding-left: 0;
+  margin:0;
 }
-.topMenu ul li{
-    list-style-type: none;
-    display: inline-block;
-    padding: 10px;
+.menu li{
+position:relative; 
+float:left; 
+border-right:1px solid #c0c0c0; 
+padding: 10px;
 }
-.topMenu ul li:hover, .selectedMenu{
-    background-color: #FFF;
-    color:#000;
+.menu li a{color:#333; text-decoration:none; padding:5px 10px; display:block;}
+
+
+.menu li a:hover{
+background:#333; 
+color:#fff; 
+
+-moz-box-shadow:0 3px 10px 0 #CCC; 
+-webkit-box-shadow:0 3px 10px 0 #ccc; 
+text-shadow:0px 0px 5px #fff; 
 }
-.topMenu ul a, .topMenu ul a:active, .topMenu ul a:visited{
-    color:#FFF;
+.menu li  ul{
+position:absolute; 
+background-color:#fff; 
+display:none;
 }
-.msg{
-    background-color: rgba(255,0,0,0.3);
-    border: 1px solid #f00;
-    padding: 5px;
-    animation: anim 3s;
-}
-@keyframes anim{
-    0% {opacity:0;}
-    100% {opacity:1;}
+.menu li:hover ul, .menu li.over ul{display:block;margin-top: 8px; }
+.menu li ul li{
+border:1px solid #c0c0c0; 
+display:block; 
+width:230px;
+margin-left: -49px;
 }
 
 
 
-#map {
-    width: 500px;
-    height: 400px;
+.teste{color: red;}
+.form-control{display: block;width: 400px;height: 30px;margin-bottom: 17px;}
+label{display: block;font-family: sans-serif; font-size: 19px;margin-bottom: 4px;}
+.container{width: 500px;margin: 0 auto;}
+select{display: block;margin-bottom: 10px;width: 400px;height: 30px;}
+.form-control2{display: block;width: 60px;height: 30px;}
+
+form input[type="submit"] { 
+width:130px; background:#2F3233; font-size:14px; color:#FFF; padding:5px; border-bottom:3px solid #CCC; border-radius:4px; font-family: "arial", "verdana", "sans-serif"; text-indent:2px;  cursor:pointer;
+}
+form input[type="submit"]:hover {
+  background:#101010; color:#f7f7f7;
 }

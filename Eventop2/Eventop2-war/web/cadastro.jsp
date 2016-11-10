@@ -3,16 +3,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+        <link href="css/menuCss.css" rel="stylesheet" type="text/css"/>
         <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="css/cssForm.css" rel="stylesheet" type="text/css"/>
-        <style>
-            #fundo {background-image: url("img/aladim.gif");color: white;}
-        </style>
+        
         <script>
             function mascara(t, mask) {
                 var i = t.value.length;
@@ -40,37 +38,19 @@ function alterna(doc) {
     </head>
 
     <body>
-        <div class="jumbotron text-center" id="fundo">
-            <h1>Seja Bem Vindo, ao EvenTop</h1>
-            <p> Os melhores eventos estão aqui!!!</p> 
-
-        </div>
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span> 
-                    </button>
-                    <a class="navbar-brand" href="FrontController?command=Usuario&action=index">EvenTOP</a>
-                </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="FrontController?command=Usuario&action=index">Home</a></li>
-                        <li><a href="FrontController?command=Usuario&action=orcamento">Orçamento</a></li>
-                        <li><a href="#">Page 2</a></li> 
-                        <li><a href="#">Page 3</a></li> 
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="FrontController?command=Usuario&action=cadastrar"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        <li><a href="FrontController?command=Usuario&action=entrar"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <div class="container">
+        <div class="container center">
+        <br />
+        <br />
+        <ul id="adajaxmenu" class="admenus">
+                     <li><a href='/'><i class='fa fa-home fa-lg'></i></a></li>    
+                    <li><a class="" href="FrontController?command=Usuario&action=index">EvenTOP</a></li>
+                    <li class=""><a href="FrontController?command=Usuario&action=index">Home</a></li>
+                    <li id="left"><a class="left" href="FrontController?command=Usuario&action=cadastrar"><span class="glyphicon glyphicon-user" class="left"></span> Sign Up</a></li>
+                    <li id="left2"><a class="left" href="FrontController?command=Usuario&action=entrar"><span class="glyphicon glyphicon-log-in" class="left"></span> Login</a></li>
+        </ul>
+        <br />
+        <br />
+        <div class="container center" style="width: 700px;">
             ${errormsg}
             ${errormsg=null}
             ${sucessmsg}
@@ -81,9 +61,11 @@ function alterna(doc) {
                 <li><a data-toggle="tab" href="#fornecedor">Cadastro Fornecedor</a></li>
             </ul>
 
-            <div class="tab-content">
-                <div id="cliente" class="tab-pane fade in active">
-                    <form action="FrontController" method="POST" >
+            <div class="tab-content" style="background: #ccc;" >
+                <div id="cliente" class="tab-pane fade in active" >
+                    <form action="FrontController" method="POST" style="margin-left:200px;">
+                        <br />
+                        <br />
                         <div class="form-group">
                             <label for="nome">Nome</label>
                             <input type="text" class="form-control" id="nome" name="nomecliente" required="required">
@@ -123,7 +105,9 @@ function alterna(doc) {
                     </form>
                 </div>
                 <div id="promoter" class="tab-pane fade">
-                    <form action="FrontController" method="POST" >
+                    <form action="FrontController" method="POST" style="margin-left:200px;">
+                        <br />
+                        <br />
                         <div class="form-group">
                             <label for="nome">Nome</label>
                             <input type="text" class="form-control" id="nome" name="nomePromoter" required="required" >
@@ -150,7 +134,7 @@ function alterna(doc) {
                         </div>
                         <div class="form-group">
                             <label for="cpf">CPF</label> 
-                            <input type = "radio" name="doc" id="cpf" value="1"  onclick="alterna(this.value);"/> 
+                            <input type ="radio" name="doc" id="cpf" value="1"  onclick="alterna(this.value);"/> 
                         </div>
                         <div class="form-group" id="tipo1" style="display:none;">
                             <input type="text" class="form-control" id="cpf" placeholder="000.000.000-00" onkeypress="mascara(this, '###.###.###-##')" name="cpf" maxlength="14" >
@@ -169,8 +153,10 @@ function alterna(doc) {
                     </form>
                 </div>
                 <div id="fornecedor" class="tab-pane fade ">
-                    <form action="FrontController" method="POST" >
+                    <form action="FrontController" method="POST" style="margin-left:200px;">
                         <div class="form-group">
+                            <br />
+                            <br />
                             <label for="nome">Nome</label>
                             <input type="text" class="form-control" id="nome" name="nomeFornecedor" required="required" >
                         </div>
@@ -207,5 +193,6 @@ function alterna(doc) {
                 </div>
             </div>
         </div>
+            </div>
     </body>
 </html>
