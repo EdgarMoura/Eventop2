@@ -57,8 +57,12 @@ public class UsuarioCliente implements Serializable {
     @JoinColumn(name = "FK_PERMISSAO", referencedColumnName = "IDPERMISSAO")
     @ManyToOne
     private Permissao fkPermissao;
+    @OneToMany(mappedBy = "fkUsuariopromoter")
+    private List<Orcamento> orcamentoList;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "usuarioCliente")
     private InfoCliente infoCliente;
+    @OneToMany(mappedBy = "fkUsuarioCliente")
+    private List<Solicitacao> solicitacaoList;
 
     public UsuarioCliente() {
     }
@@ -117,12 +121,30 @@ public class UsuarioCliente implements Serializable {
         this.fkPermissao = fkPermissao;
     }
 
+    @XmlTransient
+    public List<Orcamento> getOrcamentoList() {
+        return orcamentoList;
+    }
+
+    public void setOrcamentoList(List<Orcamento> orcamentoList) {
+        this.orcamentoList = orcamentoList;
+    }
+
     public InfoCliente getInfoCliente() {
         return infoCliente;
     }
 
     public void setInfoCliente(InfoCliente infoCliente) {
         this.infoCliente = infoCliente;
+    }
+
+    @XmlTransient
+    public List<Solicitacao> getSolicitacaoList() {
+        return solicitacaoList;
+    }
+
+    public void setSolicitacaoList(List<Solicitacao> solicitacaoList) {
+        this.solicitacaoList = solicitacaoList;
     }
 
     @Override
