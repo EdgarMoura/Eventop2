@@ -91,17 +91,17 @@
                         <tbody>
                             <c:forEach items="${infoClientes}" var="infoCliente">                                
                                 <c:if test="${infoCliente.getUsuarioCliente().getServicoList().isEmpty() == false}">
-                                    <tr>
-                                        <td>${infoCliente.nomecliente}</td>
-                                        <td>${infoCliente.email}</td>
-                                        <td>${infoCliente.telefone}</td>
-                                        <td>${infoCliente.cnpj}</td>
-                                        <c:forEach begin="0" end="${infoCliente.getUsuarioCliente().getServicoList().size() -1}" varStatus="i" var="items">  
+                                    <c:forEach begin="0" end="${infoCliente.getUsuarioCliente().getServicoList().size() -1}" varStatus="i" var="items">  
+                                        <tr>
+                                            <td>${infoCliente.nomecliente}</td>
+                                            <td>${infoCliente.email}</td>
+                                            <td>${infoCliente.telefone}</td>
+                                            <td>${infoCliente.cnpj}</td>
                                             <td>${infoCliente.getUsuarioCliente().getServicoList().get(i.index).getIdServico()} </p>
                                             <td>${infoCliente.getUsuarioCliente().getServicoList().get(i.index).getTipoServico()} </p>
                                             <td>${infoCliente.getUsuarioCliente().getServicoList().get(i.index).getDescricao()} </p>
-                                        </c:forEach>
-                                    </tr>
+                                        </tr>
+                                    </c:forEach>
                                 </c:if>
                             </c:forEach>
                         </tbody>
