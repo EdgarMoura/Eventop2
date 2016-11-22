@@ -2,7 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html lang="en">
     <head>
-        <title>Solicitar orçamento</title>
+       <title>Solicitar orçamento</title>
         <link href="css/menuCss.css" rel="stylesheet" type="text/css"/>
         <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -68,8 +68,8 @@
                 <label for="descricao">Descrição</label>
                 <textarea class="form-control" type="text" name="descricao" placeholder="Digite uma descrição" rows="5" cols="55"></textarea>
                 <input type="hidden" name="idAfiliado" value="${username.idusuariocliente}">
-                <input type="hidden" name="command" value="Evento"/>   
-                <input type="hidden" name="action" value="soliOrcamento" />
+                <input type="hidden" name="command" value="Solicitacao"/>   
+                <input type="hidden" name="action" value="solicitacao" />
                 <input class="form-control" type="submit" value="Enviar">
             </form>
         </div>

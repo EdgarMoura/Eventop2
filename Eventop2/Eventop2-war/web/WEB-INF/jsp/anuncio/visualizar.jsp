@@ -13,7 +13,8 @@
     </head>
     <body>
         <%@include file="../menu.jspf" %>
-         <c:choose>
+   
+        <c:choose>
             <c:when test="${username.fkPermissao.titlo=='Promoter'}">
                
                 ${returnMsg}

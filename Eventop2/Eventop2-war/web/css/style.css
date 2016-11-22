@@ -80,3 +80,8 @@ width:130px; background:#2F3233; font-size:14px; color:#FFF; padding:5px; border
 form input[type="submit"]:hover {
   background:#101010; color:#f7f7f7;
 }
+.tabela{border: 4px solid #2F3233;text-align: center;margin: 0 auto;font-family: 'Arial';font-weight: bold;}
+.tabela td{border: 1px solid #2F3233;padding: 5px;}
+.tabela .topo{background: #2F3233; color: #fff; }
+.tabela .topo td{border: 1px solid #000;padding-bottom: 10px;padding-top: 10px;}
+.tituloSolic{margin-left: 20px;}
