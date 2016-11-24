@@ -28,10 +28,14 @@
         <%@include file="../menu.jspf"%>
         <a href=></a>
         <div class="container">
-            ${errormsg}
-            ${errormsg=null}
-            <article>  
+
+            <article> 
+
                 <fieldset class="cadastro"> 
+                    ${errormsg}
+                    ${errormsg=null}
+                    ${sucessmsg}
+                    ${sucessmsg=null}
                     <form action="FrontController" method="POST" id="cadastro">
                         <legend>Inserir Serviço</legend>
                         <label>Inserir serviço: </label>

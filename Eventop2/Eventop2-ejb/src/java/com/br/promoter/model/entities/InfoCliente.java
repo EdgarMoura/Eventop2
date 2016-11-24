@@ -147,7 +147,7 @@ public class InfoCliente implements Serializable {
 
     @Override
     public String toString() {
-        return "com.br.promoter.model.entities.InfoCliente[ idinfocliente=" + idinfocliente + " ]";
+        return idinfocliente+" - " +nomecliente;
     }
     
 }

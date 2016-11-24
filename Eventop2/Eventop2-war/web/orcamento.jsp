@@ -53,10 +53,10 @@
                 </select>
 
                 <label for="qtdPart">Participantes</label>
-                <input class="form-control" type="number" name="participantes" placeholder="Quantidade de Participantes" required>
+                <input class="form-control" type="number" name="participantes" placeholder="Quantidade de Participantes" min="10" max="10000" required="required">
 
                 <label for="data">Data</label>
-                <input class="form-control" type="date" name="data" placeholder="Data" required>
+                <input class="form-control" type="date" name="data" placeholder="Data" required="required">
 
                 <label for="periodo">Período</label>
                 <select class="form-control" name="periodo">

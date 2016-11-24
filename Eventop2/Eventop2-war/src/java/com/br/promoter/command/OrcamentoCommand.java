@@ -154,8 +154,9 @@ public class OrcamentoCommand implements Command {
                 orcamento.setComida(comida);
                 comida.setDecricaoComida(cardapio);
                 
-                comidaDAO.persist(comida);
-                
+                comidaDAO.persist(comida); 
+                request.getSession().setAttribute("sucessmsg", "<p class='msgregister'>Orçamento enviado!</p>");
+                returnPage = "WEB-INF/jsp/orcamento/orcamentoPromoter.jsp";
                 
               break;
       }

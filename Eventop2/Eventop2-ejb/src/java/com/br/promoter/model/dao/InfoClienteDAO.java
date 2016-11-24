@@ -15,6 +15,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceContextType;
 
+
 /**
  *
  * @author 1147510
@@ -43,7 +44,7 @@ public class InfoClienteDAO implements GenericDAO<InfoCliente> {
         }
         return lista;
     }
-
+    
     @Override
     public InfoCliente findById(Integer id) {
         InfoCliente infocliente = em.find(InfoCliente.class, id);
@@ -73,6 +74,23 @@ public class InfoClienteDAO implements GenericDAO<InfoCliente> {
         return user;   
    }
     
+        public InfoCliente findByCpf(String cpf){
+      InfoCliente user = null;
+        List<InfoCliente> lista = em.createNamedQuery("InfoCliente.findByCpf", InfoCliente.class).setParameter("cpf", cpf).getResultList();
+        if(lista!=null && !lista.isEmpty()) 
+            user = lista.get(0);
+        
+        return user;   
+   }  
+        
+      public InfoCliente findByCnpj(String cnpj){
+      InfoCliente user = null;
+        List<InfoCliente> lista = em.createNamedQuery("InfoCliente.findByCnpj", InfoCliente.class).setParameter("cnpj", cnpj).getResultList();
+        if(lista!=null && !lista.isEmpty()) 
+            user = lista.get(0);
+        
+        return user;   
+   }      
     
     @Override
     public void remove(Integer id) {

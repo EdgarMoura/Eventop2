@@ -288,3 +288,20 @@ text-transform:lowercase;
 #left a{color:#fff;}
 #left2{background: #000;float: right; }
 #left2 a{color:#fff;}
+
+@keyframes anim{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+.msgregister{
+ background-color: rgba(0,255,0,0.5);   
+ border: 1px solid green;
+ padding: 8px;
+ animation: anim 1s;
+ font-family:"arial", "verdana", "sans-serif";
+ font-size: 20px;
+ font-weight:bold;
+ text-align: center;
+ color: green;
+}

@@ -36,7 +36,7 @@
         <td>${s.nome}</td>
         <td>${s.email}</td>
         <td>${s.fkUsuarioCliente.infoCliente.telefone}</td>
-        <td>${s.dataEvento}</td>
+        <td>${s.getDataEventoFormatted()}</td>
         <td>${s.periodo}</td>
         <td>${s.tema}</td>
          <td>${s.qtdPessoas}</td>

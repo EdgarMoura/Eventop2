@@ -6,6 +6,7 @@
 package com.br.promoter.model.entities;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
@@ -118,10 +119,21 @@ public class Solicitacao implements Serializable {
         this.solicitadoEm = solicitadoEm;
     }
 
+    
     public Date getDataEvento() {
         return dataEvento;
     }
 
+    public String getSolicitadoEmFormatted() {
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        return df.format(solicitadoEm);
+    }
+    
+      public String getDataEventoFormatted() {
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        return df.format(dataEvento);
+    }
+    
     public void setDataEvento(Date dataEvento) {
         this.dataEvento = dataEvento;
     }

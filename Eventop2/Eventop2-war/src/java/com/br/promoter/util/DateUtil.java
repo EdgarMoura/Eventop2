@@ -32,7 +32,7 @@ public class DateUtil {
         Date date = null;
 
         try {
-            date = formatter.parse(str);
+            date = formatterD.parse(str);
         } catch (ParseException ex) {
             Logger.getLogger(DateUtil.class.getName()).log(Level.SEVERE, null, ex);
         }

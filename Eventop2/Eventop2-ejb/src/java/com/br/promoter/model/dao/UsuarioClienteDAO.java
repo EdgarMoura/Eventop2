@@ -14,6 +14,8 @@ import javax.ejb.LocalBean;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceContextType;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -43,6 +45,10 @@ public class UsuarioClienteDAO implements GenericDAO<UsuarioCliente> {
         }
         return lista;
     }
+    
+      
+    
+    
 
     @Override
     public UsuarioCliente findById(Integer id) {

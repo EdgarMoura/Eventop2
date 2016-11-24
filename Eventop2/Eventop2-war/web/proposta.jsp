@@ -18,7 +18,9 @@
 
         <table class="tabela">
             <h3>Dados da sua Solicitação</h3>
+            <hr />
             <tr class="topo">
+                <td>ID Orçamento</td>
                 <td>Nome:</td>
                 <td>Email</td>
                 <td>Telefone</td>
@@ -33,11 +35,11 @@
 
                 <c:if test="${o.fkSolicitacao.fkUsuarioCliente == username}">
                     <tr>
-
+                        <td>${o.idOrcamento}</td>
                         <td>${o.fkSolicitacao.nome}</td>
                         <td>${o.fkSolicitacao.email}</td>
                         <td>${o.fkSolicitacao.fkUsuarioCliente.infoCliente.telefone}</td>
-                        <td>${o.fkSolicitacao.dataEvento}</td>
+                        <td>${o.fkSolicitacao.getDataEventoFormatted()}</td>
                         <td>${o.fkSolicitacao.periodo}</td>
                         <td>${o.fkSolicitacao.tema}</td>
                         <td>${o.fkSolicitacao.qtdPessoas}</td>
@@ -50,8 +52,10 @@
 
         <table class="tabela">
             <h3>Dados do Orçamento do Promoter</h3>
+            <hr />
             <h4 style="text-align: center;">Informações do Local</h4>
             <tr class="topo">
+                <td>ID Orçamento</td>
                 <td>Logradouro</td>
                 <td>Numero</td>
                 <td>Bairro</td>
@@ -65,6 +69,8 @@
             <c:forEach items="${orcamento}" var="orc">
                 <c:if test="${orc.fkSolicitacao.fkUsuarioCliente == username}">
                     <tr>   
+                        
+                        <td>${orc.idOrcamento}</td>
                         <td>${orc.endereco.logradouro}</td>
                         <td>${orc.endereco.numero}</td>
                         <td>${orc.endereco.bairro}</td>
@@ -78,10 +84,11 @@
                 </c:if>                        
             </c:forEach>           
         </table>
+        <hr />
         <table class="tabela">
             <h4 style="text-align: center;">Produtos</h4>
             <tr class="topo">
-                <td>ID</td>
+                <td>ID Orçamento</td>
                 <td>Nome</td>
                 <td>Valor</td>
             </tr>
@@ -95,9 +102,11 @@
                 </c:if>                        
             </c:forEach>           
         </table>
+          <hr />
         <table class="tabela">
             <h4 style="text-align: center;">Informações do Promoter</h4>
             <tr class="topo">
+                <td>ID Orçamento</td>
                 <td>Nome</td>
                 <td>Email</td>
                 <td>Telefone</td>
@@ -105,13 +114,15 @@
             <c:forEach items="${orcamento}" var="orc">
                 <c:if test="${orc.fkSolicitacao.fkUsuarioCliente == username}">
                     <tr>   
-                        <td>${orc.fkUsuariopromoter.idusuariocliente}</td>
+                        <td>${orc.idOrcamento}</td>
                         <td>${orc.fkUsuariopromoter.infoCliente.nomecliente}</td>
+                        <td>${orc.fkUsuariopromoter.infoCliente.email}</td>
                         <td>${orc.fkUsuariopromoter.infoCliente.telefone}</td>
                     </tr>
                 </c:if>                        
             </c:forEach>       
         </table>
+          <hr />
     </body>
 
 </html>

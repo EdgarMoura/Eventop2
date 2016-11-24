@@ -14,6 +14,9 @@ import com.br.promoter.model.dao.UsuarioClienteDAO;
 import com.br.promoter.model.entities.Orcamento;
 import com.br.promoter.model.entities.Solicitacao;
 import com.br.promoter.model.entities.UsuarioCliente;
+import com.br.promoter.util.DateUtil;
+import static com.br.promoter.util.DateUtil.string2date;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
@@ -35,6 +38,7 @@ public class SolicitacaoCommand implements Command {
     SolicitacaoDAO solicitacaoDAO = lookupSolicitacaoDAOBean();
     EnderecoDAO enderecoDAO = lookupEnderecoDAOBean();
     OrcamentoDAO orcamentoDAO = lookupOrcamentoDAOBean();
+    
     
     
     
@@ -63,6 +67,8 @@ public class SolicitacaoCommand implements Command {
                request.getSession().setAttribute("produto", produtoDAO.find());
                request.getSession().setAttribute("infocliente", infoClienteDAO.find());
                request.getSession().setAttribute("enderecos", enderecoDAO.find());
+             
+               
                returnPage = "proposta.jsp";
                 
                 break;
@@ -76,8 +82,21 @@ public class SolicitacaoCommand implements Command {
                 SimpleDateFormat formatarDate = new SimpleDateFormat("dd/MM/yyyy");
                 formatarDate.format(data);
                 Date data1 = new Date();
-                SimpleDateFormat formatador1 = new SimpleDateFormat(request.getParameter("data"));
-                formatador1.format(data1);
+                SimpleDateFormat formatador1 = new SimpleDateFormat("yyyy-MM-DD");
+                
+                {
+           try {
+               data1= formatador1.parse(request.getParameter("data"));
+               
+               
+               //formatador1.format(data1);
+           } catch (ParseException ex) {
+               Logger.getLogger(SolicitacaoCommand.class.getName()).log(Level.SEVERE, null, ex);
+           }
+       }
+                
+                
+                
                 String periodo = request.getParameter("periodo");
                 String descricao = request.getParameter("descricao");
                 Integer idUsuario = Integer.parseInt(request.getParameter("idAfiliado"));
@@ -95,7 +114,8 @@ public class SolicitacaoCommand implements Command {
                 solicitacao.setFkUsuarioCliente(usuarioClienteDAO.findById(idUsuario));
                 
                 solicitacaoDAO.persist(solicitacao);
-                returnPage = "home.jsp";
+                request.getSession().setAttribute("sucessmsg", "<p class='msgregister'>Solicitação enviada!</p>");
+                returnPage = "orcamento.jsp";
                 
                 break;
             

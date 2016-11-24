@@ -60,14 +60,14 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="FrontController?command=Usuario&action=home">Home</a></li>
-                    <li><a href="FrontController?command=Servico&action=visualiza">Serviço Fornecedores</a></li>
+                    <li><a href="FrontController?command=Servico&action=visualiza.promoter">Serviço Fornecedores</a></li>
                     <li><a href="FrontController?command=Orcamento&action=solicitacoes">Solicitações</a></li>  
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Anúncio<span class="caret"></span></a>
                         <ul class="dropdown-menu"> 
                             <li><a href="FrontController?command=Anuncio&action=atualiza">Alterar Anúncio </a></li>
                             <li><a href="FrontController?command=Anuncio&action=insere">Inserir Anúncio</a></li>
                             <li><a href="FrontController?command=Anuncio&action=deleta">Remover Anúncio</a></li>
-                            <li><a href="FrontController?command=Anuncio&action=visualiza">Visualizar Anúncio</a></li> 
+                            <li><a href="FrontController?command=Anuncio&action=visualiza.promoter">Visualizar Anúncio</a></li> 
                         </ul>
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Seu Perfil  <span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -98,7 +98,7 @@
                             <li><a href="FrontController?command=Servico&action=atualiza">Alterar Servico</a></li>
                             <li><a href="FrontController?command=Servico&action=insere">Inserir Servico</a></li>
                             <li><a href="FrontController?command=Servico&action=deleta">Remover Servico</a></li>
-                            <li><a href="FrontController?command=Servico&action=visualiza">Visualizar Servico</a></li> 
+                            <li><a href="FrontController?command=Servico&action=visualiza.fornecedor">Visualizar Servico</a></li> 
                         </ul>
                         
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Seu Perfil  <span class="caret"></span></a>

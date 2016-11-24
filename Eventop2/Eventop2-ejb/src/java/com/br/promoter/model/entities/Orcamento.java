@@ -124,10 +124,7 @@ public class Orcamento implements Serializable {
             return false;
         }
         Orcamento other = (Orcamento) object;
-        if ((this.idOrcamento == null && other.idOrcamento != null) || (this.idOrcamento != null && !this.idOrcamento.equals(other.idOrcamento))) {
-            return false;
-        }
-        return true;
+        return !((this.idOrcamento == null && other.idOrcamento != null) || (this.idOrcamento != null && !this.idOrcamento.equals(other.idOrcamento)));
     }
 
     @Override

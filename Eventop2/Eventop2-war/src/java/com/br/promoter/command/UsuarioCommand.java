@@ -63,6 +63,7 @@ public class UsuarioCommand implements Command {
 
                 UsuarioCliente user = usuarioClienteDAO.findByName(username);
                 InfoCliente infoemail = infoClienteDAO.findByEmail(email);
+                InfoCliente infocpf = infoClienteDAO.findByCpf(cpf);
 
                 if (user != null) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Usuário já existente!</p>");
@@ -71,6 +72,11 @@ public class UsuarioCommand implements Command {
                 } else if (infoemail != null) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Email já cadastrado!</p>");
                     returnPage = "cadastro.jsp";
+                }    
+                   else if (infocpf != null) {
+                    request.getSession().setAttribute("errormsg", "<p class='msg'>CPF já cadastrado!</p>");
+                    returnPage = "cadastro.jsp";
+                    
                 } else if (senha1.equals(senha2)) {
 
                     Permissao permissao = new Permissao();
@@ -120,6 +126,8 @@ public class UsuarioCommand implements Command {
 
                 UsuarioCliente user1 = usuarioClienteDAO.findByName(username1);
                 InfoCliente infoemail1 = infoClienteDAO.findByEmail(email1);
+                InfoCliente infocpf1 = infoClienteDAO.findByCpf(cpf1);
+                InfoCliente infocnpj = infoClienteDAO.findByCnpj(cnpj);
 
                 if (user1 != null) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Usuário já existente!</p>");
@@ -128,7 +136,12 @@ public class UsuarioCommand implements Command {
                 } else if (infoemail1 != null) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Email já cadastrado!</p>");
                     returnPage = "cadastro.jsp";
-                } else if (senha3.equals(senha4)) {
+                
+                }   else if (infocpf1 != null ) {
+                    request.getSession().setAttribute("errormsg", "<p class='msg'>CPF já cadastrado!</p>");
+                    returnPage = "cadastro.jsp";
+                
+                }  else if (senha3.equals(senha4)) {
 
                     Permissao permissao = new Permissao();
                     permissao.setIdpermissao(fkPermissao1);
@@ -177,6 +190,7 @@ public class UsuarioCommand implements Command {
 
                 UsuarioCliente userF = usuarioClienteDAO.findByName(usernameF);
                 InfoCliente infoemailF = infoClienteDAO.findByEmail(emailF);
+                InfoCliente infocnpj1 = infoClienteDAO.findByCnpj(cnpjF);
 
                 if (userF != null) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Usuário já existente!</p>");
@@ -185,6 +199,11 @@ public class UsuarioCommand implements Command {
                 } else if (infoemailF != null) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Email já cadastrado!</p>");
                     returnPage = "cadastro.jsp";
+                    
+                } else if (infocnpj1 != null ) {
+                    request.getSession().setAttribute("errormsg", "<p class='msg'>CNPJ já cadastrado!</p>");
+                    returnPage = "cadastro.jsp";
+                
                 } else if (senhaF.equals(senhaF1)) {
 
                     Permissao permissao = new Permissao();
@@ -261,7 +280,6 @@ public class UsuarioCommand implements Command {
                 break;
 
             case "logout":
-                request.getSession().invalidate();
                 request.getSession().setAttribute("infoClientes", infoClienteDAO.find());
                 returnPage = "index.jsp";
                 break;

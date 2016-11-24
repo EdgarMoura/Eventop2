@@ -12,28 +12,28 @@ input[type=checkbox]
   
 }
 .titulo{color:#f54325;text-align: center;}
-.servicos{border: 2px solid #fff;}
+.servicos{border: 2px solid #f9f9f9;}
 .servicos .brinq{margin-left: 18px;width: 100px;}
 .servicos .valor{margin-left: 15px;}
 .servicos span{font-size: 18px;}
-.boxe{border: 2px solid #fff;width: 250px;border:1px solid #fff;margin-left: 10px;}
+.boxe{border: 2px solid #f9f9f9;width: 250px;border:1px solid #f9f9f9;margin-left: 10px;}
 .boxe .ck1{margin: 10px 21px 20px 20px;}
 .boxe .ck2{margin-bottom: 20px;margin-left: 21px;margin-right: 20px;}
 .boxe .ck3{margin-bottom: 10px;margin-left: 21px;margin-right: 20px;}
-.boxe2{border: 2px solid #fff;width: 250px;float: right;}
+.boxe2{border: 2px solid #f9f9f9;width: 250px;float: right;}
 .boxe2 input{width: 180px;margin: 3px;margin-left: 20px;padding: 3px;}
 
-.dadosEnd{border: 2px solid #fff;}
+.dadosEnd{border: 2px solid #f9f9f9;}
 .dadosEnd h3{margin-left: 25px;}
-.endereco{border: 2px solid #fff;width: 250px; }
+.endereco{border: 2px solid #f9f9f9;width: 250px; }
 .endereco input{margin-left: 20px;margin-bottom: 5px;padding: 4px;width: 200px;}
-.endereco1{border: 2px solid #fff;width: 230px; float: right;}
+.endereco1{border: 2px solid #f9f9f9;width: 230px; float: right;}
 .endereco1 input{margin-bottom: 5px;padding: 4px;}
-.endereco1 .num{width: 179px;}
+.endereco1 .num{width: 200px;}
 
-.local{border: 2px solid #fff;}
+.local{border: 2px solid #f9f9f9;}
 .local h3{margin-left: 25px;}
-.local .valor{width: 180px;float: right; margin-right: 50px;}
+.local .valor{width: 200px;float: right; margin-right: 30px;}
 .local input{width: 200px; padding: 4px;margin-left: 20px;margin-bottom: 5px;}
 .local textarea{margin-left: 20px;}
 
@@ -43,3 +43,6 @@ margin-left: 22px;margin-bottom: 20px; width:130px; background:#2F3233; font-siz
 form input[type="submit"]:hover {
   background:#101010; color:#f7f7f7;
 }
+.est{width: 200px;}
+.cida{margin-left: 20px;width: 200px;}
+.cep{width: 200px;}

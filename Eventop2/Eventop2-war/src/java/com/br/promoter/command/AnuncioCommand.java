@@ -108,7 +108,8 @@ public class AnuncioCommand implements Command {
 
                     try {
                         anuncioDAO.persist(anuncio1);
-                        request.setAttribute("anuncios", anuncioDAO.find());
+                        request.getSession().setAttribute("sucessmsg", "<p class='msgregister'>Anúncio cadastrado!</p>");
+                        returnPage = "WEB-INF/jsp/servico/inserir.jsp";
 
                     } catch (DBException ex) {
                         request.getSession().setAttribute("errormsg", "<p class='msg'>Erro na conexão com o banco. Tente novamente!</p>");
@@ -130,6 +131,12 @@ public class AnuncioCommand implements Command {
 
                 request.getSession().setAttribute("anuncios", anuncioDAO.find());
                 break;
+                
+                case "visualiza.promoter":
+                
+                request.getSession().setAttribute("anuncios", anuncioDAO.find());
+                break;
+                
             case "visualiza":
                 
                 request.getSession().setAttribute("anuncios", anuncioDAO.find());

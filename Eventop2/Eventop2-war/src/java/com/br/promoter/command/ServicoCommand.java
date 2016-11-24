@@ -107,7 +107,8 @@ public class ServicoCommand  implements Command{
 
                     try {
                         servicoDAO.persist(servico1);
-                        request.setAttribute("servicos", servicoDAO.find());
+                        request.getSession().setAttribute("sucessmsg", "<p class='msgregister'>Serviço cadastrado!</p>");
+                        returnPage = "WEB-INF/jsp/servico/inserir.jsp";
 
                     } catch (DBException ex) {
                         request.getSession().setAttribute("errormsg", "<p class='msg'>Erro na conexão com o banco. Tente novamente!</p>");
@@ -129,8 +130,18 @@ public class ServicoCommand  implements Command{
 
                 request.getSession().setAttribute("servicos", servicoDAO.find());
                 break;
-            case "visualiza":
+            
+            case "visualiza.fornecedor":
+                request.getSession().setAttribute("servicos", servicoDAO.find());
+                break;
+                
+            case "visualiza.promoter":
                 request.getSession().setAttribute("infoClientes", infoClienteDAO.find());
+                request.getSession().setAttribute("servicos", servicoDAO.find());
+                break;
+            
+            
+            case "visualiza":
                 request.getSession().setAttribute("servicos", servicoDAO.find());
                 break;
                 
