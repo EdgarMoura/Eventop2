@@ -72,11 +72,10 @@ public class UsuarioCommand implements Command {
                 } else if (infoemail != null) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Email já cadastrado!</p>");
                     returnPage = "cadastro.jsp";
-                }    
-                   else if (infocpf != null) {
+                } else if (infocpf != null) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>CPF já cadastrado!</p>");
                     returnPage = "cadastro.jsp";
-                    
+
                 } else if (senha1.equals(senha2)) {
 
                     Permissao permissao = new Permissao();
@@ -136,12 +135,12 @@ public class UsuarioCommand implements Command {
                 } else if (infoemail1 != null) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Email já cadastrado!</p>");
                     returnPage = "cadastro.jsp";
-                
-                }   else if (infocpf1 != null ) {
+
+                } else if (infocpf1 != null) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>CPF já cadastrado!</p>");
                     returnPage = "cadastro.jsp";
-                
-                }  else if (senha3.equals(senha4)) {
+
+                } else if (senha3.equals(senha4)) {
 
                     Permissao permissao = new Permissao();
                     permissao.setIdpermissao(fkPermissao1);
@@ -177,7 +176,7 @@ public class UsuarioCommand implements Command {
 
                 }
                 break;
-                
+
             case "registrar3":
                 String nomeFornecedor = request.getParameter("nomeFornecedor");
                 String usernameF = request.getParameter("username");
@@ -199,11 +198,11 @@ public class UsuarioCommand implements Command {
                 } else if (infoemailF != null) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>Email já cadastrado!</p>");
                     returnPage = "cadastro.jsp";
-                    
-                } else if (infocnpj1 != null ) {
+
+                } else if (infocnpj1 != null) {
                     request.getSession().setAttribute("errormsg", "<p class='msg'>CNPJ já cadastrado!</p>");
                     returnPage = "cadastro.jsp";
-                
+
                 } else if (senhaF.equals(senhaF1)) {
 
                     Permissao permissao = new Permissao();
@@ -238,7 +237,7 @@ public class UsuarioCommand implements Command {
                     returnPage = "cadastro.jsp";
 
                 }
-                break;    
+                break;
 
             case "login":
                 String username2 = request.getParameter("username");
@@ -248,7 +247,6 @@ public class UsuarioCommand implements Command {
                 UsuarioCliente user2;
 
                 //System.out.println("Senha:" + senha);
-
                 try {
 
                     user2 = usuarioClienteDAO.findByName(username2);
@@ -280,12 +278,16 @@ public class UsuarioCommand implements Command {
                 break;
 
             case "logout":
-                request.getSession().setAttribute("infoClientes", infoClienteDAO.find());
+            try {
+                request.getSession().setAttribute("anunciosPromoters", anuncioDAO.listarAnuncioUser());
+            } catch (Exception ex) {
+                Logger.getLogger(UsuarioCommand.class.getName()).log(Level.SEVERE, null, ex);
+            }
                 returnPage = "index.jsp";
                 break;
 
             case "atualiza.perfil":
-               
+
                 Integer id = Integer.parseInt(request.getParameter("iduser"));
                 String username3 = request.getParameter("username");
                 String password1 = request.getParameter("pwd1");
@@ -295,7 +297,7 @@ public class UsuarioCommand implements Command {
                 String email2 = request.getParameter("email");
                 Integer fkPermissao2 = Integer.parseInt(request.getParameter("idPermissao"));
 
-                System.out.println("idPemissao: " +fkPermissao2);
+                System.out.println("idPemissao: " + fkPermissao2);
                 UsuarioCliente usuariocliente = usuarioClienteDAO.findByName(username3);
 
                 if (usuariocliente != null) {
@@ -312,8 +314,6 @@ public class UsuarioCommand implements Command {
                     infocliente.setNomecliente(fullname);
                     infocliente.setEmail(email2);
                     infocliente.setTelefone(telefone2);
-                   
-                    
 
                     UsuarioCliente uc;
                     uc = usuarioClienteDAO.findById(id);
@@ -385,9 +385,13 @@ public class UsuarioCommand implements Command {
                 returnPage = "cadastro.jsp";
                 break;
             case "index":
-                request.getSession().setAttribute("infoClientes", infoClienteDAO.find());
-                returnPage = "index.jsp";
-
+                try {
+                    // request.getSession().setAttribute("infoClientes", infoClienteDAO.find());
+                    request.getSession().setAttribute("anunciosPromoters", anuncioDAO.listarAnuncioUser());
+                } catch (Exception ex) {
+                    Logger.getLogger(UsuarioCommand.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                   returnPage = "index.jsp"; 
                 break;
             case "message":
                 returnPage = "message.jsp";
