@@ -5,6 +5,7 @@
     <head>
         <title>Eventop</title>
         <meta charset="utf-8">
+        <meta http-equiv="refresh" content="10"> 
         <link href="css/menuCss.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -13,11 +14,12 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
 
-    <body>
-        <c:if test="${infoClientes==null}">
+    <body>       
+        <%--
+        <c:if test="${anunciosPromoters==null}">
             <c:redirect url="FrontController?command=Usuario&action=index"></c:redirect>
-
-        </c:if>      
+        </c:if>
+        --%>
         <div class="container center">
             <div class="jumbotron text-center">
                 <h1>Seja Bem Vindo, ao EvenTop</h1>
@@ -31,6 +33,7 @@
                 <li id="left2"><a class="left" href="FrontController?command=Usuario&action=entrar"><span class="glyphicon glyphicon-log-in" class="left"></span> Login</a></li>
             </ul>
             <main>
+                <%--
                 <c:forEach items="${infoClientes}" var="infoCliente">
                     <c:if test="${infoCliente.getUsuarioCliente().getAnuncioList().isEmpty() == false}">
                         <c:forEach begin="0" end="${infoCliente.getUsuarioCliente().getAnuncioList().size() - 1}" varStatus="i" var="items">  
@@ -48,6 +51,19 @@
                     </c:if>
                 </c:forEach>
                 ${infoClientes=null }
+            --%>
+            <c:forEach items="${anunciosPromoters}" var= "anuncio">
+            <section>
+                <label>Dados do Promoter</label>
+                <p>Nome: ${anuncio.fkUsuario.infoCliente.nomecliente}</p>
+                <p>Email: ${anuncio.fkUsuario.infoCliente.email}</p>
+                <p>Telefone: ${anuncio.fkUsuario.infoCliente.telefone}<p>  
+                <label>Anúncios do promoter </label>
+                <p>ID Anúncio: ${anuncio.idAnuncio} </p>
+                <p>Tipo do Anúncio: ${anuncio.tipoAnuncio} </p>
+                <p>Descrição: ${anuncio.descricao} </p>
+            </section>
+            </c:forEach>
             </main> 
         </div>
 
