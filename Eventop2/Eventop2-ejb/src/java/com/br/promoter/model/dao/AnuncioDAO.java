@@ -70,5 +70,12 @@ public class AnuncioDAO implements GenericDAO<Anuncio> {
             throw new DBException(DBExceptionEnum.REMOVE_ERROR);
         }
     }
-
+    
+    public List<Anuncio> listarAnuncioUser() throws Exception{
+        List<Anuncio> retorno;
+        StringBuilder sql = new StringBuilder(" select an from Anuncio an"); 
+        retorno = em.createQuery(sql.toString(), Anuncio.class).getResultList();
+        return retorno; 
+        
+    }
 }
